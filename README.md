@@ -55,11 +55,16 @@ or the equivalent `edufoss.storeFile`, `edufoss.storePassword`, `edufoss.keyAlia
 - The watch build is limited to `armeabi-v7a`, matching the target device.
 - Round-screen layout uses `ScalingLazyColumn`, `PositionIndicator` and
   `TimeText`; the palette is derived from the phone app's dark blue scheme.
-- A 6-digit PIN lock guards the watch UI, set from the Account screen. It shares
+- A 6-digit PIN lock guards the watch UI, set from Settings → Privacy. It shares
   the phone app's `PinStore` (PBKDF2-HMAC-SHA256, salted per PIN) and has a fixed
   one-minute unlock window after the app is backgrounded, so a glance at the
   watch does not force a re-entry but walking away does. There is no biometric
   prompt on the watch.
+- The watch has its own Settings hub — theme, privacy (PIN, screenshot
+  blocking, cache), notifications and about — mirroring the phone app, and it
+  honours the shared theme preference. It also runs the same background
+  notification poll and self-update check, with notification taps deep-linking
+  into the matching screen.
 
 ## Privacy
 
@@ -82,10 +87,10 @@ may relicense at will.
 
 ## Known limitations
 
-- Only the watch essentials are implemented: sign-in, timetable, grades and a
-  read-only message list/detail view. Composed new messages, the dashboard,
-  settings, themes, background notifications and update checks exist only in the
-  phone build. (The PIN lock exists on both; the watch sets its own.)
-- The watch UI is not yet localised; strings are hard-coded English.
+- The watch has its own Settings hub (theme, privacy, notifications, about),
+  background notifications and update checks. Composing new messages and the
+  phone build's dashboard remain phone-only.
+- Both UIs ship in English, Slovak (`sk`), Czech (`cs`), Hungarian (`hu`) and
+  Polish (`pl`).
 - Credentials on Wear are stored in the app's own encrypted store; there is no
   phone-to-watch credential sync.
