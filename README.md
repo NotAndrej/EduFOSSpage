@@ -1,29 +1,35 @@
 # EduFOSSpage
 
-A small, privacy-respecting client for [EduPage](https://edupage.org) — the school
-information system used by many schools. It shows your timetable, grades and
-messages, and stores your credentials encrypted on the device.
+A small, privacy-respecting **Android** client for [EduPage](https://edupage.org) — the
+school information system used by many schools. It shows your timetable, grades and
+messages, stores your credentials encrypted on the device, and talks to nothing but your
+school's server.
 
-The project builds two things from a single `:app` module:
+> An optional **Wear OS** build ships the same app to the wrist. It is a secondary target
+> and does not affect the phone APK; see [Wear OS build](#wear-os-build-optional).
 
-| Target | Build task | Application ID | Notes |
-| --- | --- | --- | --- |
-| Phone | `:app:assembleDebug` / `:app:assembleRelease` | `org.edufosspage` | Material 3, `minSdk 23` |
-| Wear OS | `:app:assembleWear` / `:app:assembleWearRelease` | `org.edufosspage.wear` | Wear Compose, `minSdk 30`, standalone |
+## Features
 
-The watch build reuses the phone app's `org.edufosspage.data` layer and its
-UI-agnostic view models verbatim. Only the presentation layer differs.
+- **Timetable** — day and week views, with cancellations and substitutions marked.
+- **Grades** — every subject, with class averages.
+- **Messages** — a read-only list and detail view.
+- **Notifications** — background polling for new messages, grades and schedule changes,
+  with deep links back into the app.
+- **App lock** — an optional PIN and/or biometric prompt.
+- **Themes** — system, light, dark and OLED black.
+- **Local cache** for instant launch, plus a built-in self-update check.
+- No accounts beyond your school's, no ads, no analytics, no WebView, no Google Play
+  Services.
+
+The UI ships in English, Slovak, Czech, Hungarian and Polish.
 
 ## Building
 
-```bash
-# Phone
-./gradlew :app:assembleDebug
-./gradlew :app:assembleRelease
+The app is a single `:app` module:
 
-# Wear OS watch
-./gradlew :app:assembleWear          # debuggable, signed with the debug key
-./gradlew :app:assembleWearRelease   # minified + resource-shrunk (unsigned by default)
+```bash
+./gradlew :app:assembleDebug     # phone, debug-signed
+./gradlew :app:assembleRelease   # phone, minified (see signing below)
 ```
 
 Artifacts land in `app/build/outputs/apk/<variant>/`.
@@ -36,35 +42,13 @@ Gradle properties; without it, minified builds still assemble and stay unsigned
 
 ```bash
 export EDUFOSS_STORE_FILE=/path/to/release.jks
-export EDUFOSS_STORE_PASSWORD=…
-export EDUFOSS_KEY_ALIAS=…
-export EDUFOSS_KEY_PASSWORD=…
+export EDUFOSS_STORE_PASSWORD=...
+export EDUFOSS_KEY_ALIAS=...
+export EDUFOSS_KEY_PASSWORD=...
 ```
 
 or the equivalent `edufoss.storeFile`, `edufoss.storePassword`, `edufoss.keyAlias`,
 `edufoss.keyPassword` Gradle properties.
-
-## Wear OS notes
-
-- The watch UI lives in `app/src/wear/` and is only compiled into the `wear*`
-  variants, so the phone APK is unaffected.
-- The watch manifest (`app/src/wear/AndroidManifest.xml`) declares
-  `android.hardware.type.watch`, makes the app standalone, drops the phone
-  launcher and installs the watch launcher instead.
-- Wear Compose is scoped with `wearImplementation` / `wearReleaseImplementation`.
-- The watch build is limited to `armeabi-v7a`, matching the target device.
-- Round-screen layout uses `ScalingLazyColumn`, `PositionIndicator` and
-  `TimeText`; the palette is derived from the phone app's dark blue scheme.
-- A 6-digit PIN lock guards the watch UI, set from Settings → Privacy. It shares
-  the phone app's `PinStore` (PBKDF2-HMAC-SHA256, salted per PIN) and has a fixed
-  one-minute unlock window after the app is backgrounded, so a glance at the
-  watch does not force a re-entry but walking away does. There is no biometric
-  prompt on the watch.
-- The watch has its own Settings hub — theme, privacy (PIN, screenshot
-  blocking, cache), notifications and about — mirroring the phone app, and it
-  honours the shared theme preference. It also runs the same background
-  notification poll and self-update check, with notification taps deep-linking
-  into the matching screen.
 
 ## Privacy
 
@@ -75,6 +59,41 @@ or the equivalent `edufoss.storeFile`, `edufoss.storePassword`, `edufoss.keyAlia
 - No analytics, no ads, no WebView, no Google Play Services.
 - Network access is limited to the configured EduPage school host.
 
+## Wear OS build (optional)
+
+The phone app is the main product. The watch build is derived from it and reuses the
+phone app's `org.edufosspage.data` layer and its UI-agnostic view models verbatim — only
+the presentation layer differs.
+
+```bash
+./gradlew :app:assembleWear          # watch, debuggable
+./gradlew :app:assembleWearRelease   # watch, minified + resource-shrunk
+```
+
+- Application ID `org.edufosspage.wear`, `minSdk 30`, `armeabi-v7a`, standalone.
+- The watch UI lives in `app/src/wear/` and is only compiled into the `wear*` variants, so
+  the phone APK is unaffected. Wear Compose is scoped with `wearImplementation` /
+  `wearReleaseImplementation`.
+- The watch manifest declares `android.hardware.type.watch`, makes the app standalone and
+  swaps the phone launcher for the watch one.
+- Round-screen layout uses `ScalingLazyColumn`, `PositionIndicator` and `TimeText`; the
+  palette is derived from the phone app's dark blue scheme.
+- The watch mirrors the phone's settings — theme, privacy (PIN, screenshot blocking,
+  cache), notifications and about — and honours the shared theme preference. It also runs
+  the same background notification poll and self-update check, with notification taps
+  deep-linking into the matching screen.
+- Its PIN lock shares the phone app's `PinStore` (PBKDF2-HMAC-SHA256, salted per PIN) with
+  a fixed one-minute unlock window after the app is backgrounded, so a glance at the watch
+  does not force a re-entry but walking away does. There is no biometric prompt on the
+  watch.
+
+## Known limitations
+
+- The watch build is a subset of the phone app: composing new messages and the dashboard
+  are phone-only.
+- Credentials on Wear are stored in the app's own encrypted store; there is no
+  phone-to-watch credential sync.
+
 ## License
 
 GPL-3.0-or-later — see [LICENSE](LICENSE).
@@ -84,13 +103,3 @@ student-data application, the project makes the conservative, F-Droid-friendly
 choice of GPL-3.0-or-later. The dependency set (AndroidX, Compose, Material,
 `FreeDroidWarn`) is Apache-2.0 and therefore compatible. The copyright holder
 may relicense at will.
-
-## Known limitations
-
-- The watch has its own Settings hub (theme, privacy, notifications, about),
-  background notifications and update checks. Composing new messages and the
-  phone build's dashboard remain phone-only.
-- Both UIs ship in English, Slovak (`sk`), Czech (`cs`), Hungarian (`hu`) and
-  Polish (`pl`).
-- Credentials on Wear are stored in the app's own encrypted store; there is no
-  phone-to-watch credential sync.
