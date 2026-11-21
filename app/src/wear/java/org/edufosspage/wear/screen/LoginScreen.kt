@@ -47,8 +47,11 @@ fun LoginScreen(vm: LoginViewModel) {
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            // Scaffold does not inset its content for the time text, so the top
+            // padding here is what keeps the heading clear of the clock. Kept
+            // tight because the whole form has to fit a round ~233 dp screen.
+            contentPadding      = PaddingValues(start = 10.dp, end = 10.dp, top = 18.dp, bottom = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
@@ -60,7 +63,7 @@ fun LoginScreen(vm: LoginViewModel) {
                     )
                     Text(
                         "Sign in to EduPage",
-                        style = MaterialTheme.typography.caption1,
+                        style = MaterialTheme.typography.caption2,
                         color = MaterialTheme.colors.onSurfaceVariant,
                     )
                 }
@@ -71,7 +74,7 @@ fun LoginScreen(vm: LoginViewModel) {
                     value         = vm.username,
                     onValueChange = { vm.username = it },
                     label         = "Username or email",
-                    placeholder   = "name@school.edu",
+                    placeholder   = "name",
                     keyboardType  = KeyboardType.Email,
                     imeAction     = ImeAction.Next,
                 )

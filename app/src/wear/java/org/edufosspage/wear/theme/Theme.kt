@@ -1,6 +1,10 @@
 package org.edufosspage.wear.theme
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.wear.compose.material.Colors
 import androidx.wear.compose.material.MaterialTheme
@@ -27,5 +31,15 @@ private val EduWearColors = Colors(
 
 @Composable
 fun EduWearTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colors = EduWearColors, content = content)
+    MaterialTheme(colors = EduWearColors) {
+        // Wear's Scaffold does not paint a backdrop of its own, so anything it does
+        // not cover showed the activity's window background. Without an explicit
+        // surface here that window background was the phone app's light theme,
+        // leaving light-grey labels on white. Fill the screen with the palette
+        // background instead, which also makes every screen independent of the
+        // window theme.
+        Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
+            content()
+        }
+    }
 }
