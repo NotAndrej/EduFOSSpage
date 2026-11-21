@@ -1,0 +1,15 @@
+EduFOSSpage is a small, privacy-respecting client for the EduPage school
+information system. It shows your timetable, grades and messages in a clean,
+distraction-free interface.
+
+Features
+* Timetable by day
+* Grades by subject and term, with weighted averages
+* Messages with a read-only detail view
+* Credentials stored encrypted on the device
+
+Privacy
+* No analytics, no ads, no WebView, no Google Play Services
+* Talks only to your school's EduPage server
+
+There is also a companion Wear OS build for supported watches.
