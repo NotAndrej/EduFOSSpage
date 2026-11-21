@@ -15,11 +15,13 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.delay
+import org.edufosspage.R
 import org.edufosspage.data.DashGrade
 import org.edufosspage.data.DashMessage
 import org.edufosspage.data.EduSession
@@ -75,9 +77,10 @@ fun HomeScreen(
 
             if (displayDate != LocalDate.now()) {
                 Text(
-                    "No lessons today, showing ${
+                    stringResource(
+                        R.string.core_no_lessons_today,
                         displayDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
-                    }",
+                    ),
                     style    = MaterialTheme.typography.bodySmall,
                     color    = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(horizontal = 4.dp)
@@ -93,6 +96,11 @@ fun HomeScreen(
 
 @Composable
 private fun WelcomeCard(lessons: List<Lesson>?, displayDate: LocalDate, now: LocalTime) {
+    val studentLabel = stringResource(R.string.core_student)
+    val brandName    = stringResource(R.string.core_brand_name)
+    val nowLabel     = stringResource(R.string.core_now)
+    val nextLabel    = stringResource(R.string.core_next)
+
     val isToday       = displayDate == LocalDate.now()
     val currentLesson = if (isToday) lessons?.firstOrNull {
         val s = it.startTime.toTime(); val e = it.endTime.toTime()
@@ -120,7 +128,7 @@ private fun WelcomeCard(lessons: List<Lesson>?, displayDate: LocalDate, now: Loc
         ) {
             Column {
                 Text(
-                    "Welcome ${EduSession.userFullName.ifBlank { "Student" }}!",
+                    stringResource(R.string.core_welcome, EduSession.userFullName.ifBlank { studentLabel }),
                     style      = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
                     color      = MaterialTheme.colorScheme.onPrimaryContainer
@@ -129,7 +137,7 @@ private fun WelcomeCard(lessons: List<Lesson>?, displayDate: LocalDate, now: Loc
                     buildString {
                         if (EduSession.subdomain.isNotBlank()) append(EduSession.subdomain)
                         if (EduSession.userClass.isNotBlank()) append(" - ${EduSession.userClass}")
-                    }.ifBlank { "EduFOSSpage" },
+                    }.ifBlank { brandName },
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.75f)
                 )
@@ -137,13 +145,13 @@ private fun WelcomeCard(lessons: List<Lesson>?, displayDate: LocalDate, now: Loc
             displayLesson?.let { lesson ->
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
-                        if (currentLesson != null) "NOW" else "NEXT",
+                        if (currentLesson != null) nowLabel else nextLabel,
                         style      = MaterialTheme.typography.labelSmall,
                         fontWeight = FontWeight.Bold,
                         color      = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.6f)
                     )
                     Text(
-                        "${lesson.period}. period",
+                        stringResource(R.string.core_period_label, lesson.period ?: ""),
                         style      = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold,
                         color      = MaterialTheme.colorScheme.onPrimaryContainer
@@ -169,14 +177,14 @@ private fun TimetableCard(lessons: List<Lesson>, displayDate: LocalDate, now: Lo
     ) {
         Column(Modifier.padding(16.dp)) {
             Text(
-                "Timetable for ${displayDate.format(fmt)}",
+                stringResource(R.string.core_timetable_for, displayDate.format(fmt)),
                 style    = MaterialTheme.typography.bodySmall,
                 color    = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(bottom = 12.dp)
             )
             if (lessons.isEmpty()) {
                 Text(
-                    "No lessons",
+                    stringResource(R.string.core_no_lessons),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -248,32 +256,30 @@ private fun GradesCard(grades: List<DashGrade>, onClick: () -> Unit) {
                 }
             }
             Column(Modifier.weight(1f)) {
-                Text("Grades", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.core_nav_grades), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
 
-                // Group by relative date, explicit comparator so "Today"/"Yesterday"
-                // are never both mapped to 0 by toIntOrNull().
+                val todayLabel     = stringResource(R.string.core_today)
+                val yesterdayLabel = stringResource(R.string.core_yesterday)
+                val daysAgoFmt     = stringResource(R.string.core_days_ago)
+
+                // Group by a stable numeric age so ordering survives localization.
                 val grouped = grades
                     .groupBy { grade ->
                         runCatching {
                             val d    = LocalDate.parse(grade.date)
                             val days = java.time.temporal.ChronoUnit.DAYS.between(d, LocalDate.now())
-                            when {
-                                days == 0L -> "Today"
-                                days == 1L -> "Yesterday"
-                                else       -> "${days}d ago"
-                            }
+                            days.toString()
                         }.getOrElse { grade.date }
                     }
                     .entries
-                    .sortedWith(compareBy {
-                        when (it.key) {
-                            "Today"     -> 0
-                            "Yesterday" -> 1
-                            else        -> it.key.removeSuffix("d ago").toIntOrNull() ?: Int.MAX_VALUE
-                        }
-                    })
+                    .sortedWith(compareBy { it.key.toLongOrNull() ?: Long.MAX_VALUE })
 
-                grouped.forEach { (label, gs) ->
+                grouped.forEach { (key, gs) ->
+                    val label = when (key) {
+                        "0"     -> todayLabel
+                        "1"     -> yesterdayLabel
+                        else    -> key.toLongOrNull()?.let { daysAgoFmt.format(it) } ?: key
+                    }
                     Text(
                         "$label: ${gs.joinToString(", ") { it.grade }}",
                         style    = MaterialTheme.typography.bodySmall,
@@ -315,11 +321,11 @@ private fun MessagesCard(messages: List<DashMessage>, onClick: () -> Unit) {
                 }
             }
             Column(Modifier.weight(1f)) {
-                Text("Messages", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.core_nav_messages), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
 
                 if (messages.isEmpty()) {
                     Text(
-                        "No messages",
+                        stringResource(R.string.core_no_messages),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
                     )

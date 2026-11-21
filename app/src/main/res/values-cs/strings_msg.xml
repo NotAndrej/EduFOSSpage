@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared actions -->
+    <string name="msg_retry">Zkusit znovu</string>
+    <string name="msg_cancel">Zrušit</string>
+    <string name="msg_back">Zpět</string>
+    <string name="msg_search">Hledat</string>
+    <string name="msg_clear">Vymazat</string>
+
+    <!-- Relative dates -->
+    <string name="msg_today">Dnes</string>
+    <string name="msg_yesterday">Včera</string>
+    <string name="msg_tomorrow">Zítra</string>
+    <plurals name="msg_days_ago">
+        <item quantity="one">před %1$d dnem</item>
+        <item quantity="few">před %1$d dny</item>
+        <item quantity="many">před %1$d dny</item>
+        <item quantity="other">před %1$d dny</item>
+    </plurals>
+
+    <!-- Messages screen -->
+    <string name="msg_messages_title">Zprávy</string>
+    <string name="msg_message_title">Zpráva</string>
+    <string name="msg_no_messages">Žádné zprávy</string>
+    <string name="msg_no_messages_found">Nenalezeny žádné zprávy</string>
+    <string name="msg_searching_older">Hledají se starší zprávy…</string>
+    <string name="msg_search_messages_hint">Hledat zprávy…</string>
+    <string name="msg_all_messages_loaded">Všechny zprávy načteny</string>
+    <string name="msg_messages_load_error">Zprávy nelze načíst</string>
+    <string name="msg_messages_refresh_error">Aktualizace se nezdařila. Zobrazují se uložené zprávy.</string>
+    <string name="msg_no_content">Žádný obsah</string>
+    <string name="msg_loading_month">Načítání %1$s…</string>
+    <string name="msg_searching_month">Hledání %1$s…</string>
+
+    <!-- Grades screen -->
+    <string name="msg_grades_load_error">Známky nelze načíst</string>
+    <string name="msg_grades_refresh_error">Aktualizace se nezdařila. Zobrazují se uložená data.</string>
+    <string name="msg_grades_empty">V tomto pololetí nemáte žádné známky 🎉</string>
+    <string name="msg_term_first">1. pololetí</string>
+    <string name="msg_term_second">2. pololetí</string>
+
+    <!-- Notification channels -->
+    <string name="msg_channel_messages">Zprávy</string>
+    <string name="msg_channel_messages_desc">Nové zprávy od učitelů a zaměstnanců</string>
+    <string name="msg_channel_grades">Známky</string>
+    <string name="msg_channel_grades_desc">Nové známky a výsledky testů</string>
+    <string name="msg_channel_timetable">Změny rozvrhu</string>
+    <string name="msg_channel_timetable_desc">Zrušené hodiny a suplování</string>
+
+    <!-- Notification content -->
+    <string name="msg_checking_updates">Kontrola aktualizací…</string>
+    <string name="msg_new_message_from">Nová zpráva od %1$s</string>
+    <string name="msg_new_grade_in">Nová známka z %1$s</string>
+    <string name="msg_class_avg">(průměr třídy: %1$.1f)</string>
+    <string name="msg_lesson_cancelled">zrušeno</string>
+    <string name="msg_lesson_substitution">suplování</string>
+    <string name="msg_timetable_change_title">Změna rozvrhu</string>
+    <string name="msg_timetable_change_item">%1$s – %2$s (%3$s. hodina) %4$s</string>
+    <plurals name="msg_new_messages">
+        <item quantity="one">%1$d nová zpráva</item>
+        <item quantity="few">%1$d nové zprávy</item>
+        <item quantity="many">%1$d nových zpráv</item>
+        <item quantity="other">%1$d nových zpráv</item>
+    </plurals>
+    <plurals name="msg_new_grades">
+        <item quantity="one">%1$d nová známka</item>
+        <item quantity="few">%1$d nové známky</item>
+        <item quantity="many">%1$d nových známek</item>
+        <item quantity="other">%1$d nových známek</item>
+    </plurals>
+    <plurals name="msg_timetable_changes">
+        <item quantity="one">%1$d změna rozvrhu</item>
+        <item quantity="few">%1$d změny rozvrhu</item>
+        <item quantity="many">%1$d změn rozvrhu</item>
+        <item quantity="other">%1$d změn rozvrhu</item>
+    </plurals>
+</resources>

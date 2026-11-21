@@ -15,9 +15,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import org.edufosspage.R
 import org.edufosspage.data.EduGrade
 import org.edufosspage.data.SubjectGrades
 import java.time.LocalDate
@@ -35,10 +37,11 @@ fun GradesScreen(vm: GradesViewModel = viewModel()) {
     val availYears   by vm.availableYears.collectAsState()
 
     val snackbarHost = remember { SnackbarHostState() }
+    val refreshErrorMsg = stringResource(R.string.msg_grades_refresh_error)
 
     LaunchedEffect(refreshError) {
         if (refreshError) {
-            snackbarHost.showSnackbar("Couldn't refresh. Showing cached data.", duration = SnackbarDuration.Short)
+            snackbarHost.showSnackbar(refreshErrorMsg, duration = SnackbarDuration.Short)
             vm.clearRefreshError()
         }
     }
@@ -60,9 +63,9 @@ fun GradesScreen(vm: GradesViewModel = viewModel()) {
                 }
                 error -> Box(Modifier.fillMaxSize(), Alignment.Center) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text("Couldn't load grades", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(R.string.msg_grades_load_error), style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         FilledTonalButton(onClick = { vm.refresh() }) {
-                            Icon(Icons.Default.Refresh, null); Spacer(Modifier.width(6.dp)); Text("Retry")
+                            Icon(Icons.Default.Refresh, null); Spacer(Modifier.width(6.dp)); Text(stringResource(R.string.msg_retry))
                         }
                     }
                 }
@@ -70,7 +73,7 @@ fun GradesScreen(vm: GradesViewModel = viewModel()) {
                     val currentGrades = grades ?: emptyList()
                     if (currentGrades.isEmpty()) {
                         Box(Modifier.fillMaxSize(), Alignment.Center) {
-                            Text("No grades this term 🎉", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(stringResource(R.string.msg_grades_empty), style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }
                     } else {
                         LazyColumn(
@@ -119,7 +122,7 @@ private fun GradesToolbar(
             }
         }
         SingleChoiceSegmentedButtonRow {
-            listOf("P1" to "1st", "P2" to "2nd").forEachIndexed { idx, (term, label) ->
+            listOf("P1" to stringResource(R.string.msg_term_first), "P2" to stringResource(R.string.msg_term_second)).forEachIndexed { idx, (term, label) ->
                 SegmentedButton(
                     selected = selectedTerm == term,
                     onClick  = { onTermSelect(term) },

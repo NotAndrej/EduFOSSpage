@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Nastavenia -->
+    <string name="wearset_settings">Nastavenia</string>
+    <string name="wearset_menu_settings">Nastavenia</string>
+    <string name="wearset_preferences">Predvoľby</string>
+    <string name="wearset_theme_sub">Svetlá, tmavá, AMOLED</string>
+    <string name="wearset_privacy_sub">Vyrovnávacia pamäť, zámok aplikácie</string>
+    <string name="wearset_notif_sub">Správy, známky, upozornenia rozvrhu</string>
+    <string name="wearset_about_sub">Informácie, licencie, verzia</string>
+
+    <!-- Téma -->
+    <string name="wearset_theme_title">Téma</string>
+    <string name="wearset_appearance">Vzhľad</string>
+    <string name="wearset_app_theme">Téma aplikácie</string>
+    <string name="wearset_theme_system">Podľa systému</string>
+    <string name="wearset_theme_system_desc">Podľa nastavenia zariadenia</string>
+    <string name="wearset_theme_light">Svetlá</string>
+    <string name="wearset_theme_light_desc">Svetlý režim</string>
+    <string name="wearset_theme_dark">Tmavá</string>
+    <string name="wearset_theme_dark_desc">Tmavý režim</string>
+    <string name="wearset_theme_amoled">OLED čierna</string>
+    <string name="wearset_theme_amoled_desc">Odporúčané pre OLED displeje</string>
+
+    <!-- Súkromie -->
+    <string name="wearset_privacy_title">Súkromie</string>
+    <string name="wearset_pin_lock">Zámok PIN</string>
+    <string name="wearset_pin_set_desc">PIN je nastavený</string>
+    <string name="wearset_pin_unset_desc">PIN nie je nastavený</string>
+    <string name="wearset_block_screenshots">Blokovať snímky obrazovky</string>
+    <string name="wearset_block_screenshots_desc">Zabrániť snímkam obrazovky a nahrávaniu aplikácie</string>
+    <string name="wearset_local_cache">Miestna vyrovnávacia pamäť</string>
+    <string name="wearset_cache_on">Známky, správy a rozvrh sa ukladajú na disk pre okamžité spustenie</string>
+    <string name="wearset_cache_off">Žiadne údaje sa neukladajú na disk – aplikácia sa spustí vždy odznova</string>
+
+    <!-- Upozornenia -->
+    <string name="wearset_notif_title">Upozornenia</string>
+    <string name="wearset_notif_general">Všeobecné</string>
+    <string name="wearset_notif_enable">Povoliť upozornenia</string>
+    <string name="wearset_notif_enable_desc">Kontrolovať aktualizácie každých ~15 min</string>
+    <string name="wearset_notif_channels">Kanály</string>
+    <string name="wearset_notif_messages">Správy</string>
+    <string name="wearset_notif_messages_desc">Nové správy od učiteľov a personálu</string>
+    <string name="wearset_notif_grades">Známky</string>
+    <string name="wearset_notif_grades_desc">Nové známky a výsledky testov</string>
+    <string name="wearset_notif_timetable">Zmeny rozvrhu</string>
+    <string name="wearset_notif_timetable_desc">Zrušené hodiny a suplovania</string>
+    <string name="wearset_notif_test">Otestovať teraz</string>
+    <string name="wearset_notif_test_hint">Okamžite spustí úlohu na pozadí</string>
+    <string name="wearset_notif_test_done">Hotovo! Skontrolujte upozornenia.</string>
+    <string name="wearset_notif_info">Android môže oneskoriť kontrolu na pozadí kvôli šetreniu batérie. Pre najrýchlejšie upozornenia nechajte aplikáciu otvorenú alebo ju vyňte z optimalizácie batérie v nastaveniach systému.</string>
+    <string name="wearset_run">Spustiť</string>
+
+    <!-- O aplikácii -->
+    <string name="wearset_about_title">O aplikácii</string>
+    <string name="wearset_about_app_desc">Bezplatný klient EduPage s otvoreným zdrojovým kódom</string>
+    <string name="wearset_version">Verzia %1$s</string>
+    <string name="wearset_license">Licencia</string>
+    <string name="wearset_license_value">GNU General Public License v3.0</string>
+    <string name="wearset_source_code">Zdrojový kód</string>
+    <string name="wearset_disclaimer">Vyhlásenie</string>
+    <string name="wearset_disclaimer_text">Nie je produktom spoločnosti aSc Applied Software Consultants</string>
+
+    <!-- Aktualizácia -->
+    <string name="wearset_update_available">Je dostupná aktualizácia</string>
+    <string name="wearset_latest_version">Máte najnovšiu verziu</string>
+    <string name="wearset_update_now">Aktualizovať</string>
+    <string name="wearset_later">Neskôr</string>
+    <string name="wearset_update_downloading">Sťahuje sa aktualizácia…</string>
+    <string name="wearset_update_failed">Sťahovanie zlyhalo – skontrolujte pripojenie a skúste znova.</string>
+
+</resources>

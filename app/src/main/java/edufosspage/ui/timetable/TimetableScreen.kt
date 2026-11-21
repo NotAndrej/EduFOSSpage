@@ -15,11 +15,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.delay
+import org.edufosspage.R
 import org.edufosspage.data.Lesson
 import org.edufosspage.ui.home.HomeViewModel
 import java.time.DayOfWeek
@@ -79,14 +81,14 @@ fun TimetableScreen(vm: HomeViewModel = viewModel()) {
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Text(
-                        "Couldn't load timetable",
+                        stringResource(R.string.core_timetable_load_error),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     FilledTonalButton(onClick = { vm.retryDate(selectedDate) }) {
                         Icon(Icons.Default.Refresh, contentDescription = null)
                         Spacer(Modifier.width(6.dp))
-                        Text("Retry")
+                        Text(stringResource(R.string.core_retry))
                     }
                 }
             }
@@ -102,7 +104,7 @@ fun TimetableScreen(vm: HomeViewModel = viewModel()) {
                 ) {
                     Text("🎉", style = MaterialTheme.typography.displayMedium)
                     Text(
-                        "No lessons",
+                        stringResource(R.string.core_no_lessons),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -138,7 +140,7 @@ private fun WeekStrip(
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(onClick = onPrevWeek) {
-            Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = "Previous week")
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = stringResource(R.string.core_prev_week))
         }
 
         Row(
@@ -190,7 +192,7 @@ private fun WeekStrip(
         }
 
         IconButton(onClick = onNextWeek) {
-            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = "Next week")
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = stringResource(R.string.core_next_week))
         }
     }
 }
@@ -254,9 +256,9 @@ private fun LessonCard(lesson: Lesson, date: LocalDate, now: LocalTime) {
                         modifier   = Modifier.weight(1f, fill = false)
                     )
                     when {
-                        isNow                 -> StatusChip("NOW",       MaterialTheme.colorScheme.primary,  MaterialTheme.colorScheme.onPrimary)
-                        lesson.isCancelled    -> StatusChip("CANCELLED", MaterialTheme.colorScheme.error,    MaterialTheme.colorScheme.onError)
-                        lesson.isSubstitution -> StatusChip("SUB",       MaterialTheme.colorScheme.tertiary, MaterialTheme.colorScheme.onTertiary)
+                        isNow                 -> StatusChip(stringResource(R.string.core_now), MaterialTheme.colorScheme.primary,  MaterialTheme.colorScheme.onPrimary)
+                        lesson.isCancelled    -> StatusChip(stringResource(R.string.core_cancelled), MaterialTheme.colorScheme.error,    MaterialTheme.colorScheme.onError)
+                        lesson.isSubstitution -> StatusChip(stringResource(R.string.core_substitution), MaterialTheme.colorScheme.tertiary, MaterialTheme.colorScheme.onTertiary)
                     }
                 }
 

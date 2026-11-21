@@ -23,14 +23,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
+import org.edufosspage.R
 import org.edufosspage.data.EduMessage
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,6 +50,7 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
     val refreshError   by vm.refreshError.collectAsState()
 
     val snackbarHost      = remember { SnackbarHostState() }
+    val refreshErrorMsg   = stringResource(R.string.msg_messages_refresh_error)
     var selectedMessageId by rememberSaveable { mutableStateOf<String?>(null) }
     val selectedMessage   = messages?.firstOrNull { it.id == selectedMessageId }
 
@@ -60,7 +64,7 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
 
     LaunchedEffect(refreshError) {
         if (refreshError) {
-            snackbarHost.showSnackbar("Couldn't refresh. Showing cached messages.",
+            snackbarHost.showSnackbar(refreshErrorMsg,
                 duration = SnackbarDuration.Short)
             vm.clearRefreshError()
         }
@@ -99,12 +103,12 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
                         horizontalArrangement  = Arrangement.SpaceBetween,
                     ) {
                         Text(
-                            "Messages",
+                            stringResource(R.string.msg_messages_title),
                             style      = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold,
                         )
                         IconButton(onClick = { searchActive = true }) {
-                            Icon(Icons.Outlined.Search, contentDescription = "Search")
+                            Icon(Icons.Outlined.Search, contentDescription = stringResource(R.string.msg_search))
                         }
                     }
                 }
@@ -151,14 +155,14 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
                         verticalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         Text(
-                            "Unable to load messages",
+                            stringResource(R.string.msg_messages_load_error),
                             style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         FilledTonalButton(onClick = { vm.refresh() }) {
                             Icon(Icons.Default.Refresh, null)
                             Spacer(Modifier.width(6.dp))
-                            Text("Retry")
+                            Text(stringResource(R.string.msg_retry))
                         }
                     }
                 }
@@ -180,7 +184,7 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
                                 ) {
                                     Text("📭", style = MaterialTheme.typography.displayMedium)
                                     Text(
-                                        "No messages",
+                                        stringResource(R.string.msg_no_messages),
                                         style = MaterialTheme.typography.titleMedium,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     )
@@ -196,14 +200,14 @@ fun MessagesScreen(vm: MessagesViewModel = viewModel()) {
                                     if (fetchProgress != null) {
                                         CircularProgressIndicator()
                                         Text(
-                                            "Searching older messages…",
+                                            stringResource(R.string.msg_searching_older),
                                             style = MaterialTheme.typography.bodyMedium,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
                                     } else {
                                         Text("🔍", style = MaterialTheme.typography.displayMedium)
                                         Text(
-                                            "No messages found",
+                                            stringResource(R.string.msg_no_messages_found),
                                             style = MaterialTheme.typography.titleMedium,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
@@ -254,13 +258,13 @@ private fun SearchBar(
         OutlinedTextField(
             value           = query,
             onValueChange   = onQuery,
-            placeholder     = { Text("Search messages…") },
+            placeholder     = { Text(stringResource(R.string.msg_search_messages_hint)) },
             singleLine      = true,
             leadingIcon     = { Icon(Icons.Outlined.Search, null) },
             trailingIcon    = {
                 if (query.isNotBlank()) {
                     IconButton(onClick = { onQuery("") }) {
-                        Icon(Icons.Default.Close, "Clear")
+                        Icon(Icons.Default.Close, stringResource(R.string.msg_clear))
                     }
                 }
             },
@@ -273,7 +277,7 @@ private fun SearchBar(
                 .weight(1f)
                 .focusRequester(focusRequester),
         )
-        TextButton(onClick = onClose) { Text("Cancel") }
+        TextButton(onClick = onClose) { Text(stringResource(R.string.msg_cancel)) }
     }
 }
 
@@ -287,6 +291,7 @@ private fun MessageList(
     onLoadMore:     () -> Unit,
     onMessageClick: (EduMessage) -> Unit,
 ) {
+    val ctx = LocalContext.current
     val listState = rememberLazyListState()
 
     // Trigger loadMore when we're 5 items from the bottom
@@ -303,7 +308,7 @@ private fun MessageList(
     }
 
     val grouped = messages
-        .groupBy { MessagesViewModel.relativeDate(it.date) }
+        .groupBy { MessagesViewModel.relativeDate(ctx, it.date) }
         .entries
         .toList()
 
@@ -334,7 +339,7 @@ private fun MessageList(
                         strokeWidth = 2.5.dp,
                     )
                     !hasMore -> Text(
-                        "All messages loaded",
+                        stringResource(R.string.msg_all_messages_loaded),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
                     )

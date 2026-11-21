@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings hub -->
+    <string name="set_settings">Ustawienia</string>
+    <string name="set_preferences">Preferencje</string>
+    <string name="set_themes">Motywy</string>
+    <string name="set_themes_subtitle">Jasny, ciemny, AMOLED</string>
+    <string name="set_privacy">Prywatność</string>
+    <string name="set_privacy_subtitle">Pamięć podręczna, blokada aplikacji</string>
+    <string name="set_notifications">Powiadomienia</string>
+    <string name="set_notifications_subtitle">Wiadomości, oceny, alerty planu lekcji</string>
+    <string name="set_account">Konto</string>
+    <string name="set_logout">Wyloguj się</string>
+    <string name="set_logout_subtitle">Usuwa zapisane dane logowania i pamięć podręczną</string>
+    <string name="set_logout_title">Wylogować się?</string>
+    <string name="set_logout_message">Będziesz musiał zalogować się ponownie.</string>
+    <string name="set_cancel">Anuluj</string>
+    <string name="set_back">Wstecz</string>
+
+    <!-- Theme screen -->
+    <string name="set_appearance">Wygląd</string>
+    <string name="set_app_theme">Motyw aplikacji</string>
+    <string name="set_theme_system">Domyślny systemowy</string>
+    <string name="set_theme_system_desc">Zgodny z ustawieniami urządzenia</string>
+    <string name="set_theme_light">Jasny</string>
+    <string name="set_theme_light_desc">Tryb jasny</string>
+    <string name="set_theme_dark">Ciemny</string>
+    <string name="set_theme_dark_desc">Tryb ciemny</string>
+    <string name="set_theme_amoled">Czarny OLED</string>
+    <string name="set_theme_amoled_desc">Zalecany dla ekranów OLED</string>
+
+    <!-- Privacy screen -->
+    <string name="set_privacy_locked_hint">Aby zmienić ustawienia prywatności, włącz poniżej blokadę biometryczną lub PIN</string>
+    <string name="set_biometric_lock">Blokada biometryczna</string>
+    <string name="set_biometric_desc">Wymagaj odcisku palca lub twarzy, aby otworzyć aplikację</string>
+    <string name="set_biometric_unavailable">Brak dostępnego sprzętu biometrycznego</string>
+    <string name="set_lock_timeout_label">Zablokuj po przebywaniu w tle przez:</string>
+    <string name="set_timeout_every_open">Przy każdym otwarciu</string>
+    <string name="set_pin_lock">Blokada PIN</string>
+    <string name="set_pin_set_desc">Ustawiono 6-cyfrowy PIN – wyłącz, aby usunąć</string>
+    <string name="set_pin_unset_desc">Włącz, aby ustawić 6-cyfrowy PIN</string>
+    <string name="set_change_pin">Zmień PIN</string>
+    <string name="set_block_screenshots">Blokuj zrzuty ekranu</string>
+    <string name="set_block_screenshots_desc">Zapobiegaj zrzutom ekranu i nagrywaniu ekranu aplikacji</string>
+    <string name="set_local_cache">Lokalna pamięć podręczna danych</string>
+    <string name="set_cache_on_desc">Oceny, wiadomości i plan lekcji są zapisywane na dysku w celu natychmiastowego uruchomienia</string>
+    <string name="set_cache_off_desc">Żadne dane nie są zapisywane na dysku – aplikacja uruchamia się od nowa przy każdym starcie</string>
+
+    <!-- Notifications screen -->
+    <string name="set_general">Ogólne</string>
+    <string name="set_enable_notifications">Włącz powiadomienia</string>
+    <string name="set_enable_notifications_desc">Sprawdzaj aktualizacje co ok. 15 min</string>
+    <string name="set_channels">Kanały</string>
+    <string name="set_messages">Wiadomości</string>
+    <string name="set_messages_desc">Nowe wiadomości od nauczycieli i personelu</string>
+    <string name="set_grades">Oceny</string>
+    <string name="set_grades_desc">Nowe oceny i wyniki testów</string>
+    <string name="set_timetable_changes">Zmiany w planie lekcji</string>
+    <string name="set_timetable_changes_desc">Odwołania i zastępstwa</string>
+    <string name="set_debug">Debugowanie</string>
+    <string name="set_test_poll">Przetestuj sprawdzanie teraz</string>
+    <string name="set_test_done">Gotowe! Sprawdź powiadomienia.</string>
+    <string name="set_test_desc">Natychmiast uruchamia zadanie w tle</string>
+    <string name="set_run">Uruchom</string>
+    <string name="set_battery_info">Android może opóźniać sprawdzanie w tle, aby oszczędzać baterię. Aby otrzymywać powiadomienia najszybciej, pozostaw aplikację otwartą lub wyklucz ją z optymalizacji baterii w ustawieniach systemowych.</string>
+
+    <!-- About screen -->
+    <string name="set_about">O aplikacji</string>
+    <string name="set_app_info">Informacje o aplikacji</string>
+    <string name="set_app_tagline">Darmowy klient EduPage o otwartym kodzie źródłowym</string>
+    <string name="set_version_full">Wersja %1$s (%2$d)</string>
+    <string name="set_developer">Deweloper</string>
+    <string name="set_developer_subtitle">Not Andrej</string>
+    <string name="set_check_updates">Sprawdź aktualizacje</string>
+    <string name="set_checking">Sprawdzanie…</string>
+    <string name="set_version_short">Wersja %1$s</string>
+    <string name="set_latest_version">Masz najnowszą wersję</string>
+    <string name="set_legal">Informacje prawne</string>
+    <string name="set_source_code">Kod źródłowy</string>
+    <string name="set_license">Licencja</string>
+    <string name="set_license_name">GNU General Public License v3.0</string>
+    <string name="set_disclaimer">Zastrzeżenie</string>
+    <string name="set_disclaimer_subtitle">Nie jest produktem firmy aSc Applied Software Consultants</string>
+
+    <!-- Other tab -->
+    <string name="set_other">Inne</string>
+    <string name="set_settings_subtitle">Motyw, prywatność, powiadomienia</string>
+    <string name="set_about_subtitle">Informacje o aplikacji, licencje, wersja</string>
+
+    <plurals name="set_timeout_minutes">
+        <item quantity="one">%1$d minuta</item>
+        <item quantity="few">%1$d minuty</item>
+        <item quantity="many">%1$d minut</item>
+        <item quantity="other">%1$d minut</item>
+    </plurals>
+</resources>

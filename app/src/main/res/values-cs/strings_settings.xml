@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings hub -->
+    <string name="set_settings">Nastavení</string>
+    <string name="set_preferences">Předvolby</string>
+    <string name="set_themes">Motivy</string>
+    <string name="set_themes_subtitle">Světlý, tmavý, AMOLED</string>
+    <string name="set_privacy">Soukromí</string>
+    <string name="set_privacy_subtitle">Mezipaměť, zámek aplikace</string>
+    <string name="set_notifications">Oznámení</string>
+    <string name="set_notifications_subtitle">Zprávy, známky, upozornění rozvrhu</string>
+    <string name="set_account">Účet</string>
+    <string name="set_logout">Odhlásit se</string>
+    <string name="set_logout_subtitle">Vymaže uložené přihlašovací údaje a mezipaměť</string>
+    <string name="set_logout_title">Odhlásit se?</string>
+    <string name="set_logout_message">Budete se muset znovu přihlásit.</string>
+    <string name="set_cancel">Zrušit</string>
+    <string name="set_back">Zpět</string>
+
+    <!-- Theme screen -->
+    <string name="set_appearance">Vzhled</string>
+    <string name="set_app_theme">Motiv aplikace</string>
+    <string name="set_theme_system">Systémové výchozí</string>
+    <string name="set_theme_system_desc">Podle nastavení zařízení</string>
+    <string name="set_theme_light">Světlý</string>
+    <string name="set_theme_light_desc">Světlý režim</string>
+    <string name="set_theme_dark">Tmavý</string>
+    <string name="set_theme_dark_desc">Tmavý režim</string>
+    <string name="set_theme_amoled">OLED černá</string>
+    <string name="set_theme_amoled_desc">Doporučeno pro OLED displeje</string>
+
+    <!-- Privacy screen -->
+    <string name="set_privacy_locked_hint">Chcete-li změnit nastavení soukromí, povolte níže biometrický zámek nebo PIN</string>
+    <string name="set_biometric_lock">Biometrický zámek</string>
+    <string name="set_biometric_desc">Pro otevření aplikace vyžadovat otisk prstu nebo obličej</string>
+    <string name="set_biometric_unavailable">Není k dispozici žádný biometrický hardware</string>
+    <string name="set_lock_timeout_label">Zamknout po pobytu na pozadí:</string>
+    <string name="set_timeout_every_open">Při každém otevření</string>
+    <string name="set_pin_lock">Zámek PIN</string>
+    <string name="set_pin_set_desc">6místný PIN je nastaven – vypnutím jej odeberete</string>
+    <string name="set_pin_unset_desc">Zapnutím nastavíte 6místný PIN</string>
+    <string name="set_change_pin">Změnit PIN</string>
+    <string name="set_block_screenshots">Blokovat snímky obrazovky</string>
+    <string name="set_block_screenshots_desc">Zabránit snímkům obrazovky a nahrávání obrazovky aplikace</string>
+    <string name="set_local_cache">Místní mezipaměť dat</string>
+    <string name="set_cache_on_desc">Známky, zprávy a rozvrh se ukládají na disk pro okamžité spuštění</string>
+    <string name="set_cache_off_desc">Žádná data se neukládají na disk – aplikace se při každém spuštění spustí od začátku</string>
+
+    <!-- Notifications screen -->
+    <string name="set_general">Obecné</string>
+    <string name="set_enable_notifications">Povolit oznámení</string>
+    <string name="set_enable_notifications_desc">Kontrolovat aktualizace přibližně každých 15 min</string>
+    <string name="set_channels">Kanály</string>
+    <string name="set_messages">Zprávy</string>
+    <string name="set_messages_desc">Nové zprávy od učitelů a personálu</string>
+    <string name="set_grades">Známky</string>
+    <string name="set_grades_desc">Nové známky a výsledky testů</string>
+    <string name="set_timetable_changes">Změny rozvrhu</string>
+    <string name="set_timetable_changes_desc">Zrušení a suplování</string>
+    <string name="set_debug">Ladění</string>
+    <string name="set_test_poll">Otestovat kontrolu nyní</string>
+    <string name="set_test_done">Hotovo! Zkontrolujte svá oznámení.</string>
+    <string name="set_test_desc">Okamžitě spustí úlohu na pozadí</string>
+    <string name="set_run">Spustit</string>
+    <string name="set_battery_info">Android může kvůli úspoře baterie odložit kontrolu na pozadí. Nejrychlejší upozornění získáte, když necháte aplikaci otevřenou nebo ji v systémovém nastavení vyloučíte z optimalizace baterie.</string>
+
+    <!-- About screen -->
+    <string name="set_about">O aplikaci</string>
+    <string name="set_app_info">Informace o aplikaci</string>
+    <string name="set_app_tagline">Svobodný klient pro EduPage s otevřeným zdrojovým kódem</string>
+    <string name="set_version_full">Verze %1$s (%2$d)</string>
+    <string name="set_developer">Vývojář</string>
+    <string name="set_developer_subtitle">Not Andrej</string>
+    <string name="set_check_updates">Zkontrolovat aktualizace</string>
+    <string name="set_checking">Kontroluje se…</string>
+    <string name="set_version_short">Verze %1$s</string>
+    <string name="set_latest_version">Máte nejnovější verzi</string>
+    <string name="set_legal">Právní informace</string>
+    <string name="set_source_code">Zdrojový kód</string>
+    <string name="set_license">Licence</string>
+    <string name="set_license_name">GNU General Public License v3.0</string>
+    <string name="set_disclaimer">Prohlášení</string>
+    <string name="set_disclaimer_subtitle">Není produktem společnosti aSc Applied Software Consultants</string>
+
+    <!-- Other tab -->
+    <string name="set_other">Ostatní</string>
+    <string name="set_settings_subtitle">Motiv, soukromí, oznámení</string>
+    <string name="set_about_subtitle">Informace o aplikaci, licence, verze</string>
+
+    <plurals name="set_timeout_minutes">
+        <item quantity="one">%1$d minuta</item>
+        <item quantity="few">%1$d minuty</item>
+        <item quantity="many">%1$d minut</item>
+        <item quantity="other">%1$d minut</item>
+    </plurals>
+</resources>

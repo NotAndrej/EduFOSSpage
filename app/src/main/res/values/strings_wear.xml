@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Components.kt -->
+    <string name="wear_cd_back">Back</string>
+    <string name="wear_cd_refresh">Refresh</string>
+    <string name="wear_cd_cancel">Cancel</string>
+    <string name="wear_cd_prev_day">Previous day</string>
+    <string name="wear_cd_next_day">Next day</string>
+
+    <!-- Shared labels -->
+    <string name="wear_signed_in">Signed in</string>
+    <string name="wear_error_check_connection">Check your connection and refresh</string>
+    <string name="wear_common_refreshing">Refreshing…</string>
+
+    <!-- WearApp.kt -->
+    <string name="wear_loading_school">Loading your school…</string>
+    <string name="wear_signing_in">Signing in…</string>
+
+    <!-- LoginScreen.kt -->
+    <string name="wear_login_subtitle">Sign in to EduPage</string>
+    <string name="wear_login_username_label">Username or email</string>
+    <string name="wear_login_username_hint">name</string>
+    <string name="wear_login_password_label">Password</string>
+    <string name="wear_login_password_hint">password</string>
+    <string name="wear_login_show">Show</string>
+    <string name="wear_login_hide">Hide</string>
+    <string name="wear_login_action">Log in</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="wear_menu_timetable">Timetable</string>
+    <string name="wear_menu_grades">Grades</string>
+    <string name="wear_menu_messages">Messages</string>
+    <string name="wear_menu_account">Account</string>
+
+    <!-- Section titles -->
+    <string name="wear_title_timetable">Timetable</string>
+    <string name="wear_title_grades">Grades</string>
+    <string name="wear_title_messages">Messages</string>
+    <string name="wear_title_message">Message</string>
+    <string name="wear_title_account">Account</string>
+
+    <!-- TimetableScreen.kt -->
+    <string name="wear_timetable_error_title">Couldn\'t load this day</string>
+    <string name="wear_timetable_error_detail">Tap to retry</string>
+    <string name="wear_timetable_loading">Loading timetable…</string>
+    <string name="wear_timetable_empty_title">No lessons</string>
+    <string name="wear_timetable_empty_detail">Enjoy the free time</string>
+    <string name="wear_timetable_today">Today</string>
+    <string name="wear_timetable_subst">subst.</string>
+
+    <!-- GradesScreen.kt -->
+    <string name="wear_grades_error_title">Couldn\'t load grades</string>
+    <string name="wear_grades_loading">Loading grades…</string>
+    <string name="wear_grades_empty_title">No grades yet</string>
+    <string name="wear_grades_empty_detail">They\'ll appear once your teachers add them</string>
+    <string name="wear_grades_average">Average %1$s</string>
+    <string name="wear_grades_avg">avg %1$s</string>
+    <plurals name="wear_grade_count">
+        <item quantity="one">%1$d grade</item>
+        <item quantity="other">%1$d grades</item>
+    </plurals>
+
+    <!-- MessagesScreen.kt -->
+    <string name="wear_messages_loading">Loading messages…</string>
+    <string name="wear_messages_error_title">Couldn\'t load messages</string>
+    <string name="wear_messages_empty_title">No messages</string>
+    <string name="wear_messages_empty_detail">Nothing new right now</string>
+    <string name="wear_message_unavailable">Message unavailable</string>
+
+    <!-- AccountScreen.kt -->
+    <string name="wear_account_password_note">Your password is stored encrypted on this watch and removed when you sign out.</string>
+    <string name="wear_account_security">Security</string>
+    <string name="wear_pin_change">Change PIN</string>
+    <string name="wear_pin_remove">Remove PIN</string>
+    <string name="wear_pin_remove_confirm">Tap again to remove</string>
+    <string name="wear_account_sign_out">Sign out</string>
+
+    <!-- WearPinScreen.kt -->
+    <string name="wear_pin_enter">Enter PIN</string>
+    <string name="wear_pin_incorrect">Incorrect PIN</string>
+    <string name="wear_pin_mismatch">PINs do not match</string>
+    <string name="wear_pin_confirm">Confirm PIN</string>
+    <string name="wear_pin_new">New PIN</string>
+    <string name="wear_pin_set">Set PIN</string>
+    <string name="wear_pin_choose">Choose a 6-digit PIN</string>
+    <string name="wear_pin_enter_again">Enter it again</string>
+</resources>

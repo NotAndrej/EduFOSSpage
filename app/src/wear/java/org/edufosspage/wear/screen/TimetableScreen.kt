@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -34,6 +35,7 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.items
 import androidx.wear.compose.material.rememberScalingLazyListState
+import org.edufosspage.R
 import org.edufosspage.data.Lesson
 import org.edufosspage.wear.InfoBlock
 import org.edufosspage.wear.LoadingRow
@@ -63,11 +65,11 @@ fun TimetableScreen(onBack: () -> Unit, vm: TimetableViewModel = viewModel()) {
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            item { SectionHeader("Timetable", onBack) }
+            item { SectionHeader(stringResource(R.string.wear_title_timetable), onBack) }
 
             item {
                 DayPicker(
@@ -80,13 +82,20 @@ fun TimetableScreen(onBack: () -> Unit, vm: TimetableViewModel = viewModel()) {
 
             when {
                 key in failed -> item {
-                    InfoBlock("Couldn't load this day", "Tap to retry", isError = true)
+                    InfoBlock(
+                        stringResource(R.string.wear_timetable_error_title),
+                        stringResource(R.string.wear_timetable_error_detail),
+                        isError = true,
+                    )
                 }
 
-                lessons == null -> item { LoadingRow("Loading timetable…") }
+                lessons == null -> item { LoadingRow(stringResource(R.string.wear_timetable_loading)) }
 
                 lessons.isEmpty() -> item {
-                    InfoBlock("No lessons", "Enjoy the free time")
+                    InfoBlock(
+                        stringResource(R.string.wear_timetable_empty_title),
+                        stringResource(R.string.wear_timetable_empty_detail),
+                    )
                 }
 
                 else -> items(lessons) { lesson -> LessonRow(lesson) }
@@ -113,7 +122,7 @@ private fun DayPicker(
         ) {
             CompactChip(
                 onClick = onPrev,
-                icon    = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = "Previous day") },
+                icon    = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = stringResource(R.string.wear_cd_prev_day)) },
             )
             Text(
                 text      = date.format(LABEL_FMT),
@@ -123,13 +132,13 @@ private fun DayPicker(
             )
             CompactChip(
                 onClick = onNext,
-                icon    = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = "Next day") },
+                icon    = { Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = stringResource(R.string.wear_cd_next_day)) },
             )
         }
         if (date != LocalDate.now()) {
             CompactChip(
                 onClick = onToday,
-                label   = { Text("Today") },
+                label   = { Text(stringResource(R.string.wear_timetable_today)) },
                 modifier = Modifier.padding(top = 2.dp),
             )
         }
@@ -141,11 +150,13 @@ private fun LessonRow(lesson: Lesson) {
     val title = lesson.subjectShort.ifBlank { lesson.subjectName }
     val time = if (lesson.startTime.isNotBlank()) "${lesson.startTime}–${lesson.endTime}" else ""
 
+    val substLabel = stringResource(R.string.wear_timetable_subst)
+
     val details = buildList {
         if (time.isNotBlank()) add(time)
         if (lesson.classroom.isNotBlank()) add(lesson.classroom)
         if (lesson.teacherName.isNotBlank()) add(lesson.teacherName)
-        if (lesson.isSubstitution) add("subst.")
+        if (lesson.isSubstitution) add(substLabel)
     }.joinToString(" · ")
 
     BoxPill {

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared actions -->
+    <string name="msg_retry">Retry</string>
+    <string name="msg_cancel">Cancel</string>
+    <string name="msg_back">Back</string>
+    <string name="msg_search">Search</string>
+    <string name="msg_clear">Clear</string>
+
+    <!-- Relative dates -->
+    <string name="msg_today">Today</string>
+    <string name="msg_yesterday">Yesterday</string>
+    <string name="msg_tomorrow">Tomorrow</string>
+    <plurals name="msg_days_ago">
+        <item quantity="one">%1$d day ago</item>
+        <item quantity="other">%1$d days ago</item>
+    </plurals>
+
+    <!-- Messages screen -->
+    <string name="msg_messages_title">Messages</string>
+    <string name="msg_message_title">Message</string>
+    <string name="msg_no_messages">No messages</string>
+    <string name="msg_no_messages_found">No messages found</string>
+    <string name="msg_searching_older">Searching older messages…</string>
+    <string name="msg_search_messages_hint">Search messages…</string>
+    <string name="msg_all_messages_loaded">All messages loaded</string>
+    <string name="msg_messages_load_error">Unable to load messages</string>
+    <string name="msg_messages_refresh_error">Couldn\'t refresh. Showing cached messages.</string>
+    <string name="msg_no_content">No content</string>
+    <string name="msg_loading_month">Loading %1$s…</string>
+    <string name="msg_searching_month">Searching %1$s…</string>
+
+    <!-- Grades screen -->
+    <string name="msg_grades_load_error">Couldn\'t load grades</string>
+    <string name="msg_grades_refresh_error">Couldn\'t refresh. Showing cached data.</string>
+    <string name="msg_grades_empty">No grades this term 🎉</string>
+    <string name="msg_term_first">1st</string>
+    <string name="msg_term_second">2nd</string>
+
+    <!-- Notification channels -->
+    <string name="msg_channel_messages">Messages</string>
+    <string name="msg_channel_messages_desc">New messages from teachers and staff</string>
+    <string name="msg_channel_grades">Grades</string>
+    <string name="msg_channel_grades_desc">New grades and test results</string>
+    <string name="msg_channel_timetable">Timetable changes</string>
+    <string name="msg_channel_timetable_desc">Lesson cancellations and substitutions</string>
+
+    <!-- Notification content -->
+    <string name="msg_checking_updates">Checking for updates…</string>
+    <string name="msg_new_message_from">New message from %1$s</string>
+    <string name="msg_new_grade_in">New grade in %1$s</string>
+    <string name="msg_class_avg">(class avg: %1$.1f)</string>
+    <string name="msg_lesson_cancelled">cancelled</string>
+    <string name="msg_lesson_substitution">substitution</string>
+    <string name="msg_timetable_change_title">Timetable change</string>
+    <string name="msg_timetable_change_item">%1$s - %2$s (period %3$s) %4$s</string>
+    <plurals name="msg_new_messages">
+        <item quantity="one">%1$d new message</item>
+        <item quantity="other">%1$d new messages</item>
+    </plurals>
+    <plurals name="msg_new_grades">
+        <item quantity="one">%1$d new grade</item>
+        <item quantity="other">%1$d new grades</item>
+    </plurals>
+    <plurals name="msg_timetable_changes">
+        <item quantity="one">%1$d timetable change</item>
+        <item quantity="other">%1$d timetable changes</item>
+    </plurals>
+</resources>

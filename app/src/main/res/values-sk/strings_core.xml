@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (never translated) -->
+    <string name="core_brand_name">EduFOSSpage</string>
+
+    <!-- Biometric prompt -->
+    <string name="core_verify_identity">Pokračujte overením svojej identity</string>
+
+    <!-- Bottom navigation -->
+    <string name="core_nav_home">Domov</string>
+    <string name="core_nav_timetable">Rozvrh</string>
+    <string name="core_nav_grades">Známky</string>
+    <string name="core_nav_messages">Správy</string>
+    <string name="core_nav_other">Ďalšie</string>
+
+    <!-- Cached data banner -->
+    <string name="core_cached_data_banner">Zobrazujú sa uložené údaje – aktualizuje sa…</string>
+
+    <!-- Login -->
+    <string name="core_loading_school">Načítava sa vaša škola…</string>
+    <string name="core_signing_in">Prihlasovanie…</string>
+    <string name="core_sign_in_subtitle">Prihláste sa do svojho účtu EduPage</string>
+    <string name="core_username_email">Používateľské meno/e-mail</string>
+    <string name="core_password">Heslo</string>
+    <string name="core_log_in">Prihlásiť sa</string>
+
+    <!-- Home dashboard -->
+    <string name="core_welcome">Vitajte, %1$s!</string>
+    <string name="core_student">Študent</string>
+    <string name="core_now">TERAZ</string>
+    <string name="core_next">ĎALŠIA</string>
+    <string name="core_period_label">%1$s. hodina</string>
+    <string name="core_timetable_for">Rozvrh na %1$s</string>
+    <string name="core_no_lessons">Žiadne hodiny</string>
+    <string name="core_no_lessons_today">Dnes žiadne hodiny, zobrazuje sa %1$s</string>
+    <string name="core_today">Dnes</string>
+    <string name="core_yesterday">Včera</string>
+    <string name="core_days_ago">pred %1$d dňami</string>
+    <string name="core_no_messages">Žiadne správy</string>
+
+    <!-- Timetable -->
+    <string name="core_timetable_load_error">Rozvrh sa nepodarilo načítať</string>
+    <string name="core_retry">Skúsiť znova</string>
+    <string name="core_prev_week">Predchádzajúci týždeň</string>
+    <string name="core_next_week">Nasledujúci týždeň</string>
+    <string name="core_cancelled">ZRUŠENÉ</string>
+    <string name="core_substitution">ZAST.</string>
+
+    <!-- Update dialog -->
+    <string name="core_update_available">Je dostupná aktualizácia</string>
+    <string name="core_update_almost_done">takmer hotovo</string>
+    <string name="core_update_seconds_remaining">zostáva ~%1$d s</string>
+    <string name="core_update_minutes_remaining">zostáva ~%1$d min</string>
+    <string name="core_installing">Inštaluje sa…</string>
+    <string name="core_downloading_percent">Sťahuje sa… %1$d%%</string>
+    <string name="core_downloading_percent_eta">Sťahuje sa… %1$d%%  –  %2$s</string>
+    <string name="core_update_download_failed">Sťahovanie zlyhalo – skontrolujte pripojenie a skúste znova.</string>
+    <string name="core_downloading">Sťahuje sa…</string>
+    <string name="core_update_now">Aktualizovať teraz</string>
+    <string name="core_later">Neskôr</string>
+
+    <!-- PIN setup / lock -->
+    <string name="core_pin_mismatch">Kódy PIN sa nezhodujú. Skúste znova.</string>
+    <string name="core_enter_new_pin">Zadajte nový PIN</string>
+    <string name="core_confirm_new_pin">Potvrďte nový PIN</string>
+    <string name="core_set_pin">Nastaviť PIN</string>
+    <string name="core_confirm_pin">Potvrdenie PIN</string>
+    <string name="core_enter_6_digit_pin">Zadajte 6-miestny PIN</string>
+    <string name="core_enter_same_pin">Zadajte rovnaký PIN znova</string>
+    <string name="core_cancel">Zrušiť</string>
+    <string name="core_enter_pin_to_continue">Pokračujte zadaním 6-miestneho PIN</string>
+    <string name="core_incorrect_pin">Nesprávny PIN</string>
+    <string name="core_enter_pin">Zadajte PIN</string>
+    <string name="core_use_biometrics">Použiť biometriu</string>
+</resources>

@@ -4,11 +4,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -22,6 +25,7 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.items
 import androidx.wear.compose.material.rememberScalingLazyListState
+import org.edufosspage.R
 import org.edufosspage.data.EduMessage
 import org.edufosspage.ui.messages.MessagesViewModel
 import org.edufosspage.wear.InfoBlock
@@ -50,19 +54,26 @@ fun MessagesScreen(
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            item { SectionHeader("Messages", onBack, trailing = { RefreshChip(refreshing) { vm.refresh() } }) }
+            item { SectionHeader(stringResource(R.string.wear_title_messages), onBack, trailing = { RefreshChip(refreshing) { vm.refresh() } }) }
 
             when {
-                list == null -> item { LoadingRow(if (loading) "Loading messages…" else "Refreshing…") }
+                list == null -> item {
+                    LoadingRow(
+                        if (loading) stringResource(R.string.wear_messages_loading)
+                        else stringResource(R.string.wear_common_refreshing),
+                    )
+                }
 
                 list.isEmpty() -> item {
                     InfoBlock(
-                        title   = if (error) "Couldn't load messages" else "No messages",
-                        detail  = if (error) "Check your connection and refresh" else "Nothing new right now",
+                        title   = if (error) stringResource(R.string.wear_messages_error_title)
+                                  else stringResource(R.string.wear_messages_empty_title),
+                        detail  = if (error) stringResource(R.string.wear_error_check_connection)
+                                  else stringResource(R.string.wear_messages_empty_detail),
                         isError = error,
                     )
                 }
@@ -77,6 +88,7 @@ fun MessagesScreen(
 
 @Composable
 private fun MessageChip(message: EduMessage, onClick: () -> Unit) {
+    val ctx = LocalContext.current
     Chip(
         label = {
             Text(
@@ -87,7 +99,7 @@ private fun MessageChip(message: EduMessage, onClick: () -> Unit) {
         },
         secondaryLabel = {
             Text(
-                "${MessagesViewModel.relativeDate(message.date)} · ${message.preview}",
+                "${MessagesViewModel.relativeDate(ctx, message.date)} · ${message.preview}",
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -100,6 +112,7 @@ private fun MessageChip(message: EduMessage, onClick: () -> Unit) {
 @Composable
 fun MessageDetailScreen(message: EduMessage?, onBack: () -> Unit) {
     val listState = rememberScalingLazyListState()
+    val ctx = LocalContext.current
 
     Scaffold(
         timeText          = { TimeText() },
@@ -108,14 +121,14 @@ fun MessageDetailScreen(message: EduMessage?, onBack: () -> Unit) {
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            item { SectionHeader("Message", onBack) }
+            item { SectionHeader(stringResource(R.string.wear_title_message), onBack) }
 
             if (message == null) {
-                item { InfoBlock("Message unavailable") }
+                item { InfoBlock(stringResource(R.string.wear_message_unavailable)) }
             } else {
                 item {
                     Text(
@@ -128,7 +141,7 @@ fun MessageDetailScreen(message: EduMessage?, onBack: () -> Unit) {
                 }
                 item {
                     Text(
-                        "${MessagesViewModel.relativeDate(message.date)}" +
+                        "${MessagesViewModel.relativeDate(ctx, message.date)}" +
                             if (message.time.isNotBlank()) " · ${message.time}" else "",
                         style = MaterialTheme.typography.caption1,
                         color = MaterialTheme.colors.onSurfaceVariant,
@@ -137,7 +150,13 @@ fun MessageDetailScreen(message: EduMessage?, onBack: () -> Unit) {
                 item {
                     Text(
                         message.preview,
-                        style = MaterialTheme.typography.body2,
+                        style     = MaterialTheme.typography.body2,
+                        textAlign = TextAlign.Center,
+                        // The screen is round, so full width is only free at the vertical
+                        // middle; a paragraph that spans the width gets its first and last
+                        // words cut off above and below that. A capped, centred column stays
+                        // inside the bezel for the whole height of the screen.
+                        modifier  = Modifier.widthIn(max = 160.dp),
                     )
                 }
             }

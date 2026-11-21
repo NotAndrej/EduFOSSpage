@@ -9,11 +9,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -26,6 +28,7 @@ import androidx.wear.compose.material.ScalingLazyColumn
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.rememberScalingLazyListState
+import org.edufosspage.R
 
 @Composable
 fun MenuScreen(
@@ -35,6 +38,7 @@ fun MenuScreen(
     onOpenGrades: () -> Unit,
     onOpenMessages: () -> Unit,
     onOpenAccount: () -> Unit,
+    onOpenSettings: () -> Unit,
 ) {
     val listState = rememberScalingLazyListState()
 
@@ -45,14 +49,14 @@ fun MenuScreen(
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        "EduFOSS",
+                        "EduFOSSpage",
                         style = MaterialTheme.typography.title3,
                         color = MaterialTheme.colors.primary,
                     )
@@ -74,10 +78,11 @@ fun MenuScreen(
                 }
             }
 
-            item { MenuChip("Timetable", Icons.Filled.List,  onOpenTimetable) }
-            item { MenuChip("Grades",    Icons.Filled.Star,  onOpenGrades) }
-            item { MenuChip("Messages",  Icons.Filled.Email, onOpenMessages) }
-            item { MenuChip("Account",   Icons.Filled.Person, onOpenAccount) }
+            item { MenuChip(stringResource(R.string.wear_menu_timetable), Icons.Filled.List,  onOpenTimetable) }
+            item { MenuChip(stringResource(R.string.wear_menu_grades),    Icons.Filled.Star,  onOpenGrades) }
+            item { MenuChip(stringResource(R.string.wear_menu_messages),  Icons.Filled.Email, onOpenMessages) }
+            item { MenuChip(stringResource(R.string.wear_menu_account),   Icons.Filled.Person, onOpenAccount) }
+            item { MenuChip(stringResource(R.string.wearset_menu_settings), Icons.Filled.Settings, onOpenSettings) }
         }
     }
 }

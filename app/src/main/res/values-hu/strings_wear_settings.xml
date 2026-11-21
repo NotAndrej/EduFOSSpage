@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Beállítások -->
+    <string name="wearset_settings">Beállítások</string>
+    <string name="wearset_menu_settings">Beállítások</string>
+    <string name="wearset_preferences">Preferenciák</string>
+    <string name="wearset_theme_sub">Világos, sötét, AMOLED</string>
+    <string name="wearset_privacy_sub">Gyorsítótár, alkalmazászár</string>
+    <string name="wearset_notif_sub">Üzenetek, jegyek, órarendértesítések</string>
+    <string name="wearset_about_sub">Alkalmazásinformációk, licencek, verzió</string>
+
+    <!-- Téma -->
+    <string name="wearset_theme_title">Téma</string>
+    <string name="wearset_appearance">Megjelenés</string>
+    <string name="wearset_app_theme">Alkalmazás témája</string>
+    <string name="wearset_theme_system">Rendszer szerint</string>
+    <string name="wearset_theme_system_desc">Az eszköz beállítását követi</string>
+    <string name="wearset_theme_light">Világos</string>
+    <string name="wearset_theme_light_desc">Világos mód</string>
+    <string name="wearset_theme_dark">Sötét</string>
+    <string name="wearset_theme_dark_desc">Sötét mód</string>
+    <string name="wearset_theme_amoled">OLED fekete</string>
+    <string name="wearset_theme_amoled_desc">OLED kijelzőkhöz ajánlott</string>
+
+    <!-- Adatvédelem -->
+    <string name="wearset_privacy_title">Adatvédelem</string>
+    <string name="wearset_pin_lock">PIN-zár</string>
+    <string name="wearset_pin_set_desc">A PIN be van állítva</string>
+    <string name="wearset_pin_unset_desc">Nincs PIN beállítva</string>
+    <string name="wearset_block_screenshots">Képernyőképek tiltása</string>
+    <string name="wearset_block_screenshots_desc">Az alkalmazásról készült képernyőképek és felvételek tiltása</string>
+    <string name="wearset_local_cache">Helyi gyorsítótár</string>
+    <string name="wearset_cache_on">A jegyek, üzenetek és órarend lemezre mentve az azonnali induláshoz</string>
+    <string name="wearset_cache_off">Nem íródik adat a lemezre – az alkalmazás minden indításkor elölről kezd</string>
+
+    <!-- Értesítések -->
+    <string name="wearset_notif_title">Értesítések</string>
+    <string name="wearset_notif_general">Általános</string>
+    <string name="wearset_notif_enable">Értesítések engedélyezése</string>
+    <string name="wearset_notif_enable_desc">Frissítések keresése ~15 percenként</string>
+    <string name="wearset_notif_channels">Csatornák</string>
+    <string name="wearset_notif_messages">Üzenetek</string>
+    <string name="wearset_notif_messages_desc">Új üzenetek tanároktól és munkatársaktól</string>
+    <string name="wearset_notif_grades">Jegyek</string>
+    <string name="wearset_notif_grades_desc">Új jegyek és dolgozatok eredményei</string>
+    <string name="wearset_notif_timetable">Órarendváltozások</string>
+    <string name="wearset_notif_timetable_desc">Elmaradt órák és helyettesítések</string>
+    <string name="wearset_notif_test">Tesztelés most</string>
+    <string name="wearset_notif_test_hint">Azonnal lefuttatja a háttérfeladatot</string>
+    <string name="wearset_notif_test_done">Kész! Nézze meg az értesítéseket.</string>
+    <string name="wearset_notif_info">Az Android az akkumulátorkímélés miatt késleltetheti a háttérbeli ellenőrzést. A leggyorsabb értesítésekhez hagyja nyitva az alkalmazást, vagy zárja ki az akkumulátor-optimalizálásból a rendszerbeállításokban.</string>
+    <string name="wearset_run">Futtatás</string>
+
+    <!-- Névjegy -->
+    <string name="wearset_about_title">Névjegy</string>
+    <string name="wearset_about_app_desc">Ingyenes, nyílt forráskódú EduPage-kliens</string>
+    <string name="wearset_version">Verzió %1$s</string>
+    <string name="wearset_license">Licenc</string>
+    <string name="wearset_license_value">GNU General Public License v3.0</string>
+    <string name="wearset_source_code">Forráskód</string>
+    <string name="wearset_disclaimer">Jogi nyilatkozat</string>
+    <string name="wearset_disclaimer_text">Nem az aSc Applied Software Consultants terméke</string>
+
+    <!-- Frissítés -->
+    <string name="wearset_update_available">Frissítés érhető el</string>
+    <string name="wearset_latest_version">Naprakész</string>
+    <string name="wearset_update_now">Frissítés most</string>
+    <string name="wearset_later">Később</string>
+    <string name="wearset_update_downloading">Frissítés letöltése…</string>
+    <string name="wearset_update_failed">A letöltés nem sikerült – ellenőrizze a kapcsolatot, és próbálja újra.</string>
+
+</resources>

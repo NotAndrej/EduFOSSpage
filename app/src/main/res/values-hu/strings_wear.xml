@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Components.kt -->
+    <string name="wear_cd_back">Vissza</string>
+    <string name="wear_cd_refresh">Frissítés</string>
+    <string name="wear_cd_cancel">Mégse</string>
+    <string name="wear_cd_prev_day">Előző nap</string>
+    <string name="wear_cd_next_day">Következő nap</string>
+
+    <!-- Shared labels -->
+    <string name="wear_signed_in">Bejelentkezve</string>
+    <string name="wear_error_check_connection">Ellenőrizd a kapcsolatot, majd frissíts</string>
+    <string name="wear_common_refreshing">Frissítés…</string>
+
+    <!-- WearApp.kt -->
+    <string name="wear_loading_school">Iskola betöltése…</string>
+    <string name="wear_signing_in">Bejelentkezés…</string>
+
+    <!-- LoginScreen.kt -->
+    <string name="wear_login_subtitle">Jelentkezz be az EduPage-be</string>
+    <string name="wear_login_username_label">Felhasználónév vagy e-mail</string>
+    <string name="wear_login_username_hint">név</string>
+    <string name="wear_login_password_label">Jelszó</string>
+    <string name="wear_login_password_hint">jelszó</string>
+    <string name="wear_login_show">Megjelenítés</string>
+    <string name="wear_login_hide">Elrejtés</string>
+    <string name="wear_login_action">Bejelentkezés</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="wear_menu_timetable">Órarend</string>
+    <string name="wear_menu_grades">Jegyek</string>
+    <string name="wear_menu_messages">Üzenetek</string>
+    <string name="wear_menu_account">Fiók</string>
+
+    <!-- Section titles -->
+    <string name="wear_title_timetable">Órarend</string>
+    <string name="wear_title_grades">Jegyek</string>
+    <string name="wear_title_messages">Üzenetek</string>
+    <string name="wear_title_message">Üzenet</string>
+    <string name="wear_title_account">Fiók</string>
+
+    <!-- TimetableScreen.kt -->
+    <string name="wear_timetable_error_title">Nem sikerült betölteni ezt a napot</string>
+    <string name="wear_timetable_error_detail">Koppints az újrapróbáláshoz</string>
+    <string name="wear_timetable_loading">Órarend betöltése…</string>
+    <string name="wear_timetable_empty_title">Nincsenek órák</string>
+    <string name="wear_timetable_empty_detail">Élvezd a szabadidőt</string>
+    <string name="wear_timetable_today">Ma</string>
+    <string name="wear_timetable_subst">hely.</string>
+
+    <!-- GradesScreen.kt -->
+    <string name="wear_grades_error_title">Nem sikerült betölteni a jegyeket</string>
+    <string name="wear_grades_loading">Jegyek betöltése…</string>
+    <string name="wear_grades_empty_title">Még nincsenek jegyek</string>
+    <string name="wear_grades_empty_detail">Megjelennek, amint a tanárok hozzáadják őket</string>
+    <string name="wear_grades_average">Átlag %1$s</string>
+    <string name="wear_grades_avg">átlag %1$s</string>
+    <plurals name="wear_grade_count">
+        <item quantity="one">%1$d jegy</item>
+        <item quantity="other">%1$d jegy</item>
+    </plurals>
+
+    <!-- MessagesScreen.kt -->
+    <string name="wear_messages_loading">Üzenetek betöltése…</string>
+    <string name="wear_messages_error_title">Nem sikerült betölteni az üzeneteket</string>
+    <string name="wear_messages_empty_title">Nincsenek üzenetek</string>
+    <string name="wear_messages_empty_detail">Most nincs semmi új</string>
+    <string name="wear_message_unavailable">Az üzenet nem érhető el</string>
+
+    <!-- AccountScreen.kt -->
+    <string name="wear_account_password_note">A jelszavad titkosítva van tárolva ezen az órán, és kijelentkezéskor törlődik.</string>
+    <string name="wear_account_security">Biztonság</string>
+    <string name="wear_pin_change">PIN módosítása</string>
+    <string name="wear_pin_remove">PIN eltávolítása</string>
+    <string name="wear_pin_remove_confirm">Koppints újra az eltávolításhoz</string>
+    <string name="wear_account_sign_out">Kijelentkezés</string>
+
+    <!-- WearPinScreen.kt -->
+    <string name="wear_pin_enter">Add meg a PIN-kódot</string>
+    <string name="wear_pin_incorrect">Hibás PIN-kód</string>
+    <string name="wear_pin_mismatch">A PIN-kódok nem egyeznek</string>
+    <string name="wear_pin_confirm">PIN-kód megerősítése</string>
+    <string name="wear_pin_new">Új PIN-kód</string>
+    <string name="wear_pin_set">PIN beállítása</string>
+    <string name="wear_pin_choose">Válassz 6 jegyű PIN-kódot</string>
+    <string name="wear_pin_enter_again">Add meg újra</string>
+</resources>

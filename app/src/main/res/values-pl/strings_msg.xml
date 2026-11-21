@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared actions -->
+    <string name="msg_retry">Ponów</string>
+    <string name="msg_cancel">Anuluj</string>
+    <string name="msg_back">Wstecz</string>
+    <string name="msg_search">Szukaj</string>
+    <string name="msg_clear">Wyczyść</string>
+
+    <!-- Relative dates -->
+    <string name="msg_today">Dzisiaj</string>
+    <string name="msg_yesterday">Wczoraj</string>
+    <string name="msg_tomorrow">Jutro</string>
+    <plurals name="msg_days_ago">
+        <item quantity="one">%1$d dzień temu</item>
+        <item quantity="few">%1$d dni temu</item>
+        <item quantity="many">%1$d dni temu</item>
+        <item quantity="other">%1$d dni temu</item>
+    </plurals>
+
+    <!-- Messages screen -->
+    <string name="msg_messages_title">Wiadomości</string>
+    <string name="msg_message_title">Wiadomość</string>
+    <string name="msg_no_messages">Brak wiadomości</string>
+    <string name="msg_no_messages_found">Nie znaleziono wiadomości</string>
+    <string name="msg_searching_older">Wyszukiwanie starszych wiadomości…</string>
+    <string name="msg_search_messages_hint">Szukaj wiadomości…</string>
+    <string name="msg_all_messages_loaded">Wszystkie wiadomości załadowane</string>
+    <string name="msg_messages_load_error">Nie można załadować wiadomości</string>
+    <string name="msg_messages_refresh_error">Nie udało się odświeżyć. Pokazywanie zapisanych wiadomości.</string>
+    <string name="msg_no_content">Brak treści</string>
+    <string name="msg_loading_month">Ładowanie %1$s…</string>
+    <string name="msg_searching_month">Wyszukiwanie %1$s…</string>
+
+    <!-- Grades screen -->
+    <string name="msg_grades_load_error">Nie można załadować ocen</string>
+    <string name="msg_grades_refresh_error">Nie udało się odświeżyć. Pokazywanie zapisanych danych.</string>
+    <string name="msg_grades_empty">Brak ocen w tym semestrze 🎉</string>
+    <string name="msg_term_first">1. semestr</string>
+    <string name="msg_term_second">2. semestr</string>
+
+    <!-- Notification channels -->
+    <string name="msg_channel_messages">Wiadomości</string>
+    <string name="msg_channel_messages_desc">Nowe wiadomości od nauczycieli i pracowników</string>
+    <string name="msg_channel_grades">Oceny</string>
+    <string name="msg_channel_grades_desc">Nowe oceny i wyniki sprawdzianów</string>
+    <string name="msg_channel_timetable">Zmiany planu zajęć</string>
+    <string name="msg_channel_timetable_desc">Odwołane lekcje i zastępstwa</string>
+
+    <!-- Notification content -->
+    <string name="msg_checking_updates">Sprawdzanie aktualizacji…</string>
+    <string name="msg_new_message_from">Nowa wiadomość od %1$s</string>
+    <string name="msg_new_grade_in">Nowa ocena z %1$s</string>
+    <string name="msg_class_avg">(średnia klasy: %1$.1f)</string>
+    <string name="msg_lesson_cancelled">odwołana</string>
+    <string name="msg_lesson_substitution">zastępstwo</string>
+    <string name="msg_timetable_change_title">Zmiana planu zajęć</string>
+    <string name="msg_timetable_change_item">%1$s – %2$s (%3$s. lekcja) %4$s</string>
+    <plurals name="msg_new_messages">
+        <item quantity="one">%1$d nowa wiadomość</item>
+        <item quantity="few">%1$d nowe wiadomości</item>
+        <item quantity="many">%1$d nowych wiadomości</item>
+        <item quantity="other">%1$d nowych wiadomości</item>
+    </plurals>
+    <plurals name="msg_new_grades">
+        <item quantity="one">%1$d nowa ocena</item>
+        <item quantity="few">%1$d nowe oceny</item>
+        <item quantity="many">%1$d nowych ocen</item>
+        <item quantity="other">%1$d nowych ocen</item>
+    </plurals>
+    <plurals name="msg_timetable_changes">
+        <item quantity="one">%1$d zmiana planu zajęć</item>
+        <item quantity="few">%1$d zmiany planu zajęć</item>
+        <item quantity="many">%1$d zmian planu zajęć</item>
+        <item quantity="other">%1$d zmian planu zajęć</item>
+    </plurals>
+</resources>

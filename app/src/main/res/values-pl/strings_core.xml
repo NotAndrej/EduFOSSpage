@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (never translated) -->
+    <string name="core_brand_name">EduFOSSpage</string>
+
+    <!-- Biometric prompt -->
+    <string name="core_verify_identity">Kontynuuj, weryfikując swoją tożsamość</string>
+
+    <!-- Bottom navigation -->
+    <string name="core_nav_home">Główna</string>
+    <string name="core_nav_timetable">Plan zajęć</string>
+    <string name="core_nav_grades">Oceny</string>
+    <string name="core_nav_messages">Wiadomości</string>
+    <string name="core_nav_other">Inne</string>
+
+    <!-- Cached data banner -->
+    <string name="core_cached_data_banner">Wyświetlane są zapisane dane – aktualizowanie…</string>
+
+    <!-- Login -->
+    <string name="core_loading_school">Ładowanie Twojej szkoły…</string>
+    <string name="core_signing_in">Logowanie…</string>
+    <string name="core_sign_in_subtitle">Zaloguj się do swojego konta EduPage</string>
+    <string name="core_username_email">Nazwa użytkownika/e-mail</string>
+    <string name="core_password">Hasło</string>
+    <string name="core_log_in">Zaloguj się</string>
+
+    <!-- Home dashboard -->
+    <string name="core_welcome">Witaj, %1$s!</string>
+    <string name="core_student">Uczeń</string>
+    <string name="core_now">TERAZ</string>
+    <string name="core_next">NASTĘPNA</string>
+    <string name="core_period_label">%1$s. lekcja</string>
+    <string name="core_timetable_for">Plan zajęć na %1$s</string>
+    <string name="core_no_lessons">Brak lekcji</string>
+    <string name="core_no_lessons_today">Dziś brak lekcji, wyświetlono %1$s</string>
+    <string name="core_today">Dziś</string>
+    <string name="core_yesterday">Wczoraj</string>
+    <string name="core_days_ago">%1$d dni temu</string>
+    <string name="core_no_messages">Brak wiadomości</string>
+
+    <!-- Timetable -->
+    <string name="core_timetable_load_error">Nie udało się wczytać planu zajęć</string>
+    <string name="core_retry">Ponów</string>
+    <string name="core_prev_week">Poprzedni tydzień</string>
+    <string name="core_next_week">Następny tydzień</string>
+    <string name="core_cancelled">ODWOŁANE</string>
+    <string name="core_substitution">ZAST.</string>
+
+    <!-- Update dialog -->
+    <string name="core_update_available">Dostępna aktualizacja</string>
+    <string name="core_update_almost_done">prawie gotowe</string>
+    <string name="core_update_seconds_remaining">pozostało ~%1$d s</string>
+    <string name="core_update_minutes_remaining">pozostało ~%1$d min</string>
+    <string name="core_installing">Instalowanie…</string>
+    <string name="core_downloading_percent">Pobieranie… %1$d%%</string>
+    <string name="core_downloading_percent_eta">Pobieranie… %1$d%%  –  %2$s</string>
+    <string name="core_update_download_failed">Pobieranie nie powiodło się – sprawdź połączenie i spróbuj ponownie.</string>
+    <string name="core_downloading">Pobieranie…</string>
+    <string name="core_update_now">Zaktualizuj teraz</string>
+    <string name="core_later">Później</string>
+
+    <!-- PIN setup / lock -->
+    <string name="core_pin_mismatch">Kody PIN się nie zgadzają. Spróbuj ponownie.</string>
+    <string name="core_enter_new_pin">Wprowadź nowy PIN</string>
+    <string name="core_confirm_new_pin">Potwierdź nowy PIN</string>
+    <string name="core_set_pin">Ustaw PIN</string>
+    <string name="core_confirm_pin">Potwierdź PIN</string>
+    <string name="core_enter_6_digit_pin">Wprowadź 6-cyfrowy PIN</string>
+    <string name="core_enter_same_pin">Wprowadź ponownie ten sam PIN</string>
+    <string name="core_cancel">Anuluj</string>
+    <string name="core_enter_pin_to_continue">Kontynuuj, wpisując 6-cyfrowy PIN</string>
+    <string name="core_incorrect_pin">Nieprawidłowy PIN</string>
+    <string name="core_enter_pin">Wprowadź PIN</string>
+    <string name="core_use_biometrics">Użyj biometrii</string>
+</resources>

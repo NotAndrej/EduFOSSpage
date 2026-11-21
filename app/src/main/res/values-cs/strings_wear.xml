@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Components.kt -->
+    <string name="wear_cd_back">Zpět</string>
+    <string name="wear_cd_refresh">Obnovit</string>
+    <string name="wear_cd_cancel">Zrušit</string>
+    <string name="wear_cd_prev_day">Předchozí den</string>
+    <string name="wear_cd_next_day">Následující den</string>
+
+    <!-- Shared labels -->
+    <string name="wear_signed_in">Přihlášen</string>
+    <string name="wear_error_check_connection">Zkontroluj připojení a obnov</string>
+    <string name="wear_common_refreshing">Obnovuji…</string>
+
+    <!-- WearApp.kt -->
+    <string name="wear_loading_school">Načítám školu…</string>
+    <string name="wear_signing_in">Přihlašuji…</string>
+
+    <!-- LoginScreen.kt -->
+    <string name="wear_login_subtitle">Přihlas se do EduPage</string>
+    <string name="wear_login_username_label">Uživatelské jméno nebo e-mail</string>
+    <string name="wear_login_username_hint">jméno</string>
+    <string name="wear_login_password_label">Heslo</string>
+    <string name="wear_login_password_hint">heslo</string>
+    <string name="wear_login_show">Zobrazit</string>
+    <string name="wear_login_hide">Skrýt</string>
+    <string name="wear_login_action">Přihlásit se</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="wear_menu_timetable">Rozvrh</string>
+    <string name="wear_menu_grades">Známky</string>
+    <string name="wear_menu_messages">Zprávy</string>
+    <string name="wear_menu_account">Účet</string>
+
+    <!-- Section titles -->
+    <string name="wear_title_timetable">Rozvrh</string>
+    <string name="wear_title_grades">Známky</string>
+    <string name="wear_title_messages">Zprávy</string>
+    <string name="wear_title_message">Zpráva</string>
+    <string name="wear_title_account">Účet</string>
+
+    <!-- TimetableScreen.kt -->
+    <string name="wear_timetable_error_title">Nepodařilo se načíst tento den</string>
+    <string name="wear_timetable_error_detail">Klepnutím zkusit znovu</string>
+    <string name="wear_timetable_loading">Načítám rozvrh…</string>
+    <string name="wear_timetable_empty_title">Žádné hodiny</string>
+    <string name="wear_timetable_empty_detail">Užij si volno</string>
+    <string name="wear_timetable_today">Dnes</string>
+    <string name="wear_timetable_subst">supl.</string>
+
+    <!-- GradesScreen.kt -->
+    <string name="wear_grades_error_title">Nepodařilo se načíst známky</string>
+    <string name="wear_grades_loading">Načítám známky…</string>
+    <string name="wear_grades_empty_title">Zatím žádné známky</string>
+    <string name="wear_grades_empty_detail">Zobrazí se, jakmile je učitelé přidají</string>
+    <string name="wear_grades_average">Průměr %1$s</string>
+    <string name="wear_grades_avg">prům. %1$s</string>
+    <plurals name="wear_grade_count">
+        <item quantity="one">%1$d známka</item>
+        <item quantity="few">%1$d známky</item>
+        <item quantity="many">%1$d známky</item>
+        <item quantity="other">%1$d známek</item>
+    </plurals>
+
+    <!-- MessagesScreen.kt -->
+    <string name="wear_messages_loading">Načítám zprávy…</string>
+    <string name="wear_messages_error_title">Nepodařilo se načíst zprávy</string>
+    <string name="wear_messages_empty_title">Žádné zprávy</string>
+    <string name="wear_messages_empty_detail">Momentálně nic nového</string>
+    <string name="wear_message_unavailable">Zpráva není k dispozici</string>
+
+    <!-- AccountScreen.kt -->
+    <string name="wear_account_password_note">Heslo je v těchto hodinkách uloženo šifrovaně a při odhlášení se odstraní.</string>
+    <string name="wear_account_security">Zabezpečení</string>
+    <string name="wear_pin_change">Změnit PIN</string>
+    <string name="wear_pin_remove">Odebrat PIN</string>
+    <string name="wear_pin_remove_confirm">Klepni znovu pro odebrání</string>
+    <string name="wear_account_sign_out">Odhlásit se</string>
+
+    <!-- WearPinScreen.kt -->
+    <string name="wear_pin_enter">Zadej PIN</string>
+    <string name="wear_pin_incorrect">Nesprávný PIN</string>
+    <string name="wear_pin_mismatch">PINy se neshodují</string>
+    <string name="wear_pin_confirm">Potvrď PIN</string>
+    <string name="wear_pin_new">Nový PIN</string>
+    <string name="wear_pin_set">Nastavit PIN</string>
+    <string name="wear_pin_choose">Zvol 6místný PIN</string>
+    <string name="wear_pin_enter_again">Zadej ho znovu</string>
+</resources>

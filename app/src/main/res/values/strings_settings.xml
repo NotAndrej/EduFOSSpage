@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings hub -->
+    <string name="set_settings">Settings</string>
+    <string name="set_preferences">Preferences</string>
+    <string name="set_themes">Themes</string>
+    <string name="set_themes_subtitle">Light, dark, AMOLED</string>
+    <string name="set_privacy">Privacy</string>
+    <string name="set_privacy_subtitle">Cache, app lock</string>
+    <string name="set_notifications">Notifications</string>
+    <string name="set_notifications_subtitle">Messages, grades, timetable alerts</string>
+    <string name="set_account">Account</string>
+    <string name="set_logout">Log out</string>
+    <string name="set_logout_subtitle">Clears saved credentials and cache</string>
+    <string name="set_logout_title">Log out?</string>
+    <string name="set_logout_message">You\'ll need to sign in again.</string>
+    <string name="set_cancel">Cancel</string>
+    <string name="set_back">Back</string>
+
+    <!-- Theme screen -->
+    <string name="set_appearance">Appearance</string>
+    <string name="set_app_theme">App theme</string>
+    <string name="set_theme_system">System default</string>
+    <string name="set_theme_system_desc">Follows your device setting</string>
+    <string name="set_theme_light">Light</string>
+    <string name="set_theme_light_desc">Light mode</string>
+    <string name="set_theme_dark">Dark</string>
+    <string name="set_theme_dark_desc">Dark mode</string>
+    <string name="set_theme_amoled">OLED Black</string>
+    <string name="set_theme_amoled_desc">Recommended for OLED displays</string>
+
+    <!-- Privacy screen -->
+    <string name="set_privacy_locked_hint">Enable biometric lock or PIN below to change privacy settings</string>
+    <string name="set_biometric_lock">Biometric lock</string>
+    <string name="set_biometric_desc">Require fingerprint or face to open app</string>
+    <string name="set_biometric_unavailable">No biometric hardware available</string>
+    <string name="set_lock_timeout_label">Lock after being in background for:</string>
+    <string name="set_timeout_every_open">Every open</string>
+    <string name="set_pin_lock">PIN lock</string>
+    <string name="set_pin_set_desc">6-digit PIN is set - toggle to remove</string>
+    <string name="set_pin_unset_desc">Toggle on to set a 6-digit PIN</string>
+    <string name="set_change_pin">Change PIN</string>
+    <string name="set_block_screenshots">Block screenshots</string>
+    <string name="set_block_screenshots_desc">Prevent screenshots and screen recording of the app</string>
+    <string name="set_local_cache">Local data cache</string>
+    <string name="set_cache_on_desc">Grades, messages and timetable are saved to disk for instant launch</string>
+    <string name="set_cache_off_desc">No data is written to disk - app starts fresh every launch</string>
+
+    <!-- Notifications screen -->
+    <string name="set_general">General</string>
+    <string name="set_enable_notifications">Enable notifications</string>
+    <string name="set_enable_notifications_desc">Poll for updates every ~15 min</string>
+    <string name="set_channels">Channels</string>
+    <string name="set_messages">Messages</string>
+    <string name="set_messages_desc">New messages from teachers and staff</string>
+    <string name="set_grades">Grades</string>
+    <string name="set_grades_desc">New grades and test results</string>
+    <string name="set_timetable_changes">Timetable changes</string>
+    <string name="set_timetable_changes_desc">Cancellations and substitutions</string>
+    <string name="set_debug">Debug</string>
+    <string name="set_test_poll">Test poll now</string>
+    <string name="set_test_done">Done! Check your notifications.</string>
+    <string name="set_test_desc">Runs the background worker immediately</string>
+    <string name="set_run">Run</string>
+    <string name="set_battery_info">Android may delay background polling to save battery. For the fastest alerts, keep the app open or exempt it from battery optimisation in system settings.</string>
+
+    <!-- About screen -->
+    <string name="set_about">About</string>
+    <string name="set_app_info">App info</string>
+    <string name="set_app_tagline">A free and open-source EduPage client</string>
+    <string name="set_version_full">Version %1$s (%2$d)</string>
+    <string name="set_developer">Developer</string>
+    <string name="set_developer_subtitle">Not Andrej</string>
+    <string name="set_check_updates">Check for updates</string>
+    <string name="set_checking">Checking…</string>
+    <string name="set_version_short">Version %1$s</string>
+    <string name="set_latest_version">You\'re on the latest version</string>
+    <string name="set_legal">Legal</string>
+    <string name="set_source_code">Source Code</string>
+    <string name="set_license">License</string>
+    <string name="set_license_name">GNU General Public License v3.0</string>
+    <string name="set_disclaimer">Disclaimer</string>
+    <string name="set_disclaimer_subtitle">Not a product of aSc Applied Software Consultants</string>
+
+    <!-- Other tab -->
+    <string name="set_other">Other</string>
+    <string name="set_settings_subtitle">Theme, privacy, notifications</string>
+    <string name="set_about_subtitle">App info, licenses, version</string>
+
+    <plurals name="set_timeout_minutes">
+        <item quantity="one">%1$d minute</item>
+        <item quantity="other">%1$d minutes</item>
+    </plurals>
+</resources>

@@ -21,7 +21,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -39,6 +40,7 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.items
 import androidx.wear.compose.material.rememberScalingLazyListState
+import org.edufosspage.R
 import org.edufosspage.data.EduGrade
 import org.edufosspage.data.SubjectGrades
 import org.edufosspage.ui.grades.GradesViewModel
@@ -47,9 +49,6 @@ import org.edufosspage.wear.LoadingRow
 import org.edufosspage.wear.RefreshChip
 import org.edufosspage.wear.SectionHeader
 import java.util.Locale
-
-private val GoodGrade = Color(0xFF9CCC65)
-private val BadGrade  = Color(0xFFFF8A80)
 
 private fun fmt(value: Float): String = String.format(Locale.US, "%.2f", value)
 
@@ -77,11 +76,11 @@ fun GradesScreen(onBack: () -> Unit, vm: GradesViewModel = viewModel()) {
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            item { SectionHeader("Grades", onBack, trailing = { RefreshChip(refreshing) { vm.refresh() } }) }
+            item { SectionHeader(stringResource(R.string.wear_title_grades), onBack, trailing = { RefreshChip(refreshing) { vm.refresh() } }) }
 
             item {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -92,12 +91,19 @@ fun GradesScreen(onBack: () -> Unit, vm: GradesViewModel = viewModel()) {
 
             when {
                 subjectList == null -> item {
-                    if (error) InfoBlock("Couldn't load grades", "Check your connection and refresh", isError = true)
-                    else LoadingRow("Loading grades…")
+                    if (error) InfoBlock(
+                        stringResource(R.string.wear_grades_error_title),
+                        stringResource(R.string.wear_error_check_connection),
+                        isError = true,
+                    )
+                    else LoadingRow(stringResource(R.string.wear_grades_loading))
                 }
 
                 subjectList.isEmpty() -> item {
-                    InfoBlock("No grades yet", "They'll appear once your teachers add them")
+                    InfoBlock(
+                        stringResource(R.string.wear_grades_empty_title),
+                        stringResource(R.string.wear_grades_empty_detail),
+                    )
                 }
 
                 else -> items(subjectList) { subject ->
@@ -130,11 +136,12 @@ private fun SubjectChip(subject: SubjectGrades, onClick: () -> Unit) {
         },
         secondaryLabel = {
             val count = subject.grades.size
+            val countLabel = pluralStringResource(R.plurals.wear_grade_count, count, count)
             Text(
-                buildString {
-                    append(count)
-                    append(if (count == 1) " grade" else " grades")
-                    if (average != null) append(" · avg ${fmt(average)}")
+                if (average != null) {
+                    "$countLabel · ${stringResource(R.string.wear_grades_avg, fmt(average))}"
+                } else {
+                    countLabel
                 },
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -156,7 +163,7 @@ private fun GradeDetailScreen(subject: SubjectGrades, onBack: () -> Unit) {
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -172,7 +179,7 @@ private fun GradeDetailScreen(subject: SubjectGrades, onBack: () -> Unit) {
                     )
                     subject.average?.let {
                         Text(
-                            "Average ${fmt(it)}",
+                            stringResource(R.string.wear_grades_average, fmt(it)),
                             style = MaterialTheme.typography.title3,
                             color = MaterialTheme.colors.primary,
                         )
@@ -215,18 +222,8 @@ private fun GradeRow(grade: EduGrade) {
             Text(
                 grade.gradeValue,
                 style = MaterialTheme.typography.title3,
-                color = gradeColor(grade),
+                color = MaterialTheme.colors.onSurface,
             )
         }
-    }
-}
-
-private fun gradeColor(grade: EduGrade): Color {
-    if (grade.isVerbal) return Color.Unspecified
-    return when {
-        grade.gradeNumeric == null -> Color.Unspecified
-        grade.gradeNumeric <= 1.5f  -> GoodGrade
-        grade.gradeNumeric >= 4f    -> BadGrade
-        else                        -> Color.Unspecified
     }
 }

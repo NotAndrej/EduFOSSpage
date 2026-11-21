@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared actions -->
+    <string name="msg_retry">Újra</string>
+    <string name="msg_cancel">Mégse</string>
+    <string name="msg_back">Vissza</string>
+    <string name="msg_search">Keresés</string>
+    <string name="msg_clear">Törlés</string>
+
+    <!-- Relative dates -->
+    <string name="msg_today">Ma</string>
+    <string name="msg_yesterday">Tegnap</string>
+    <string name="msg_tomorrow">Holnap</string>
+    <plurals name="msg_days_ago">
+        <item quantity="one">%1$d napja</item>
+        <item quantity="other">%1$d napja</item>
+    </plurals>
+
+    <!-- Messages screen -->
+    <string name="msg_messages_title">Üzenetek</string>
+    <string name="msg_message_title">Üzenet</string>
+    <string name="msg_no_messages">Nincsenek üzenetek</string>
+    <string name="msg_no_messages_found">Nincs találat</string>
+    <string name="msg_searching_older">Régebbi üzenetek keresése…</string>
+    <string name="msg_search_messages_hint">Üzenetek keresése…</string>
+    <string name="msg_all_messages_loaded">Minden üzenet betöltve</string>
+    <string name="msg_messages_load_error">Az üzeneteket nem sikerült betölteni</string>
+    <string name="msg_messages_refresh_error">A frissítés nem sikerült. Gyorsítótárazott üzenetek megjelenítése.</string>
+    <string name="msg_no_content">Nincs tartalom</string>
+    <string name="msg_loading_month">%1$s betöltése…</string>
+    <string name="msg_searching_month">%1$s keresése…</string>
+
+    <!-- Grades screen -->
+    <string name="msg_grades_load_error">A jegyeket nem sikerült betölteni</string>
+    <string name="msg_grades_refresh_error">A frissítés nem sikerült. Gyorsítótárazott adatok megjelenítése.</string>
+    <string name="msg_grades_empty">Ebben a félévben nincsenek jegyeid 🎉</string>
+    <string name="msg_term_first">1. félév</string>
+    <string name="msg_term_second">2. félév</string>
+
+    <!-- Notification channels -->
+    <string name="msg_channel_messages">Üzenetek</string>
+    <string name="msg_channel_messages_desc">Új üzenetek tanároktól és munkatársaktól</string>
+    <string name="msg_channel_grades">Jegyek</string>
+    <string name="msg_channel_grades_desc">Új jegyek és dolgozatok eredményei</string>
+    <string name="msg_channel_timetable">Órarendváltozások</string>
+    <string name="msg_channel_timetable_desc">Elmaradó órák és helyettesítések</string>
+
+    <!-- Notification content -->
+    <string name="msg_checking_updates">Frissítések keresése…</string>
+    <string name="msg_new_message_from">Új üzenet: %1$s</string>
+    <string name="msg_new_grade_in">Új jegy: %1$s</string>
+    <string name="msg_class_avg">(osztályátlag: %1$.1f)</string>
+    <string name="msg_lesson_cancelled">elmarad</string>
+    <string name="msg_lesson_substitution">helyettesítés</string>
+    <string name="msg_timetable_change_title">Órarendváltozás</string>
+    <string name="msg_timetable_change_item">%1$s – %2$s (%3$s. óra) %4$s</string>
+    <plurals name="msg_new_messages">
+        <item quantity="one">%1$d új üzenet</item>
+        <item quantity="other">%1$d új üzenet</item>
+    </plurals>
+    <plurals name="msg_new_grades">
+        <item quantity="one">%1$d új jegy</item>
+        <item quantity="other">%1$d új jegy</item>
+    </plurals>
+    <plurals name="msg_timetable_changes">
+        <item quantity="one">%1$d órarendváltozás</item>
+        <item quantity="other">%1$d órarendváltozás</item>
+    </plurals>
+</resources>

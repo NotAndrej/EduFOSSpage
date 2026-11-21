@@ -17,11 +17,13 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.edufosspage.R
 import org.edufosspage.data.PinStore
 
 @Composable
@@ -42,6 +44,7 @@ fun PinSetupScreen(
     var errorMsg by rememberSaveable { mutableStateOf("") }
 
     val shakeOffset = remember { Animatable(0f) }
+    val pinMismatchMsg = stringResource(R.string.core_pin_mismatch)
 
     fun shake(msg: String) {
         isError  = true
@@ -70,7 +73,7 @@ fun PinSetupScreen(
                     1 -> { firstPin = input; input = ""; step = 2 }
                     2 -> {
                         if (input == firstPin) { PinStore.setPin(ctx, input); onPinSet() }
-                        else shake("PINs don't match. Try again.")
+                        else shake(pinMismatchMsg)
                     }
                 }
             }
@@ -85,16 +88,17 @@ fun PinSetupScreen(
     }
 
     val title = when {
-        isChanging && step == 1 -> "Enter new PIN"
-        isChanging && step == 2 -> "Confirm new PIN"
-        step == 1               -> "Set a PIN"
-        else                    -> "Confirm PIN"
+        isChanging && step == 1 -> stringResource(R.string.core_enter_new_pin)
+        isChanging && step == 2 -> stringResource(R.string.core_confirm_new_pin)
+        step == 1               -> stringResource(R.string.core_set_pin)
+        else                    -> stringResource(R.string.core_confirm_pin)
     }
-    val subtitle = if (step == 1) "Enter a 6-digit PIN" else "Enter the same PIN again"
+    val subtitle = if (step == 1) stringResource(R.string.core_enter_6_digit_pin)
+                   else stringResource(R.string.core_enter_same_pin)
 
     Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), Alignment.Center) {
         IconButton(onClick = onDismiss, modifier = Modifier.align(Alignment.TopStart).padding(8.dp)) {
-            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Cancel")
+            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.core_cancel))
         }
 
         if (isLandscape) {

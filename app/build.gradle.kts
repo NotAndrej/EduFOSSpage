@@ -58,7 +58,7 @@ android {
             initWith(getByName("debug"))
             applicationIdSuffix = ".wear"
             versionNameSuffix   = "-wear"
-            resValue("string", "app_name", "EduFOSSpage Wear")
+            resValue("string", "app_name", "EduFOSSpage")
 
             // The target watch is 32-bit (armeabi-v7a); ship only that ABI.
             ndk { abiFilters += "armeabi-v7a" }

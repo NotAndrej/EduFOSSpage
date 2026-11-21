@@ -9,10 +9,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.edufosspage.BuildConfig
+import org.edufosspage.R
 import org.edufosspage.data.UpdateChecker
 import org.edufosspage.data.UpdateInfo
 /**
@@ -26,6 +28,10 @@ fun UpdateDialog(
 ) {
     val ctx   = LocalContext.current
     val scope = rememberCoroutineScope()
+
+    val almostDoneLabel = stringResource(R.string.core_update_almost_done)
+    val secondsLeftFmt  = stringResource(R.string.core_update_seconds_remaining)
+    val minutesLeftFmt  = stringResource(R.string.core_update_minutes_remaining)
 
     var downloading by remember { mutableStateOf(false) }
     var progress    by remember { mutableStateOf(0f) }
@@ -54,9 +60,9 @@ fun UpdateDialog(
         val etaMs       = (remaining / bytesPerMs).toLong()
 
         etaLabel = when {
-            etaMs < 5_000  -> "almost done"
-            etaMs < 60_000 -> "~${etaMs / 1000}s remaining"
-            else           -> "~${etaMs / 60_000}m remaining"
+            etaMs < 5_000  -> almostDoneLabel
+            etaMs < 60_000 -> secondsLeftFmt.format(etaMs / 1000)
+            else           -> minutesLeftFmt.format(etaMs / 60_000)
         }
     }
 
@@ -76,7 +82,7 @@ fun UpdateDialog(
         },
         title = {
             Text(
-                "Update available",
+                stringResource(R.string.core_update_available),
                 fontWeight = FontWeight.Bold,
             )
         },
@@ -120,9 +126,9 @@ fun UpdateDialog(
                         )
                         Text(
                             when {
-                                progress >= 1f   -> "Installing…"
-                                etaLabel.isBlank() -> "Downloading… ${(progress * 100).toInt()}%"
-                                else             -> "Downloading… ${(progress * 100).toInt()}%  •  $etaLabel"
+                                progress >= 1f   -> stringResource(R.string.core_installing)
+                                etaLabel.isBlank() -> stringResource(R.string.core_downloading_percent, (progress * 100).toInt())
+                                else             -> stringResource(R.string.core_downloading_percent_eta, (progress * 100).toInt(), etaLabel)
                             },
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -132,7 +138,7 @@ fun UpdateDialog(
 
                 if (failed) {
                     Text(
-                        "Download failed - check your connection and try again.",
+                        stringResource(R.string.core_update_download_failed),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.error,
                     )
@@ -175,12 +181,12 @@ fun UpdateDialog(
                     )
                     Spacer(Modifier.width(8.dp))
                 }
-                Text(if (downloading) "Downloading…" else "Update now")
+                Text(stringResource(if (downloading) R.string.core_downloading else R.string.core_update_now))
             }
         },
         dismissButton = {
             if (!downloading) {
-                TextButton(onClick = onDismiss) { Text("Later") }
+                TextButton(onClick = onDismiss) { Text(stringResource(R.string.core_later)) }
             }
         },
     )

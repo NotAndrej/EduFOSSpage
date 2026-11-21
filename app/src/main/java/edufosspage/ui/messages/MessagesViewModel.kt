@@ -1,12 +1,14 @@
 package org.edufosspage.ui.messages
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import org.edufosspage.R
 import org.edufosspage.data.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -119,7 +121,7 @@ class MessagesViewModel(private val app: Application) : AndroidViewModel(app) {
             val to   = meta.oldestFetchedDate.minusDays(1)
             val from = to.minusDays(30)
 
-            _fetchProgress.value = "Loading ${monthLabel(from)}..."
+            _fetchProgress.value = app.getString(R.string.msg_loading_month, monthLabel(from))
             Log.d("MsgVM", "loadMore: $from -> $to")
 
             val chunk = MessagesApi.fetchMessages(from, to)
@@ -159,7 +161,7 @@ class MessagesViewModel(private val app: Application) : AndroidViewModel(app) {
             val to   = meta.oldestFetchedDate.minusDays(1)
             val from = to.minusDays(30)
 
-            _fetchProgress.value = "Searching ${monthLabel(from)}..."
+            _fetchProgress.value = app.getString(R.string.msg_searching_month, monthLabel(from))
             Log.d("MsgVM", "searchFetch: $from -> $to")
 
             val chunk  = MessagesApi.fetchMessages(from, to) ?: break
@@ -202,14 +204,14 @@ class MessagesViewModel(private val app: Application) : AndroidViewModel(app) {
     }
 
     companion object {
-        fun relativeDate(dateStr: String): String = runCatching {
+        fun relativeDate(ctx: Context, dateStr: String): String = runCatching {
             val date  = LocalDate.parse(dateStr)
             val today = LocalDate.now()
             val days  = ChronoUnit.DAYS.between(date, today)
             when {
-                days == 0L -> "Today"
-                days == 1L -> "Yesterday"
-                days < 7L  -> "${days}d ago"
+                days == 0L -> ctx.getString(R.string.msg_today)
+                days == 1L -> ctx.getString(R.string.msg_yesterday)
+                days < 7L  -> ctx.resources.getQuantityString(R.plurals.msg_days_ago, days.toInt(), days.toInt())
                 else       -> date.format(DateTimeFormatter.ofPattern("d MMM yyyy"))
             }
         }.getOrElse { dateStr }

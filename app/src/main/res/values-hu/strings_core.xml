@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (never translated) -->
+    <string name="core_brand_name">EduFOSSpage</string>
+
+    <!-- Biometric prompt -->
+    <string name="core_verify_identity">A folytatáshoz igazolja személyazonosságát</string>
+
+    <!-- Bottom navigation -->
+    <string name="core_nav_home">Kezdőlap</string>
+    <string name="core_nav_timetable">Órarend</string>
+    <string name="core_nav_grades">Jegyek</string>
+    <string name="core_nav_messages">Üzenetek</string>
+    <string name="core_nav_other">Egyéb</string>
+
+    <!-- Cached data banner -->
+    <string name="core_cached_data_banner">Gyorsítótárazott adatok megjelenítése – frissítés…</string>
+
+    <!-- Login -->
+    <string name="core_loading_school">Az iskola betöltése…</string>
+    <string name="core_signing_in">Bejelentkezés…</string>
+    <string name="core_sign_in_subtitle">Jelentkezzen be EduPage-fiókjába</string>
+    <string name="core_username_email">Felhasználónév/e-mail</string>
+    <string name="core_password">Jelszó</string>
+    <string name="core_log_in">Bejelentkezés</string>
+
+    <!-- Home dashboard -->
+    <string name="core_welcome">Üdvözöljük, %1$s!</string>
+    <string name="core_student">Diák</string>
+    <string name="core_now">MOST</string>
+    <string name="core_next">KÖVETKEZŐ</string>
+    <string name="core_period_label">%1$s. óra</string>
+    <string name="core_timetable_for">Órarend – %1$s</string>
+    <string name="core_no_lessons">Nincsenek órák</string>
+    <string name="core_no_lessons_today">Ma nincsenek órák, megjelenítve: %1$s</string>
+    <string name="core_today">Ma</string>
+    <string name="core_yesterday">Tegnap</string>
+    <string name="core_days_ago">%1$d nappal ezelőtt</string>
+    <string name="core_no_messages">Nincsenek üzenetek</string>
+
+    <!-- Timetable -->
+    <string name="core_timetable_load_error">Nem sikerült betölteni az órarendet</string>
+    <string name="core_retry">Újra</string>
+    <string name="core_prev_week">Előző hét</string>
+    <string name="core_next_week">Következő hét</string>
+    <string name="core_cancelled">TÖRÖLVE</string>
+    <string name="core_substitution">HELY.</string>
+
+    <!-- Update dialog -->
+    <string name="core_update_available">Frissítés érhető el</string>
+    <string name="core_update_almost_done">majdnem kész</string>
+    <string name="core_update_seconds_remaining">~%1$d mp van hátra</string>
+    <string name="core_update_minutes_remaining">~%1$d perc van hátra</string>
+    <string name="core_installing">Telepítés…</string>
+    <string name="core_downloading_percent">Letöltés… %1$d%%</string>
+    <string name="core_downloading_percent_eta">Letöltés… %1$d%%  –  %2$s</string>
+    <string name="core_update_download_failed">A letöltés nem sikerült – ellenőrizze a kapcsolatot, és próbálja újra.</string>
+    <string name="core_downloading">Letöltés…</string>
+    <string name="core_update_now">Frissítés most</string>
+    <string name="core_later">Később</string>
+
+    <!-- PIN setup / lock -->
+    <string name="core_pin_mismatch">A PIN-kódok nem egyeznek. Próbálja újra.</string>
+    <string name="core_enter_new_pin">Adja meg az új PIN-kódot</string>
+    <string name="core_confirm_new_pin">Erősítse meg az új PIN-kódot</string>
+    <string name="core_set_pin">PIN-kód beállítása</string>
+    <string name="core_confirm_pin">PIN megerősítése</string>
+    <string name="core_enter_6_digit_pin">Adjon meg egy 6 jegyű PIN-kódot</string>
+    <string name="core_enter_same_pin">Adja meg újra ugyanazt a PIN-kódot</string>
+    <string name="core_cancel">Mégse</string>
+    <string name="core_enter_pin_to_continue">A folytatáshoz adja meg a 6 jegyű PIN-kódot</string>
+    <string name="core_incorrect_pin">Hibás PIN-kód</string>
+    <string name="core_enter_pin">PIN-kód megadása</string>
+    <string name="core_use_biometrics">Biometrikus azonosítás</string>
+</resources>

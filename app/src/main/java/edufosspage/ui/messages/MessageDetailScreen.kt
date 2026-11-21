@@ -13,8 +13,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.edufosspage.R
 
 @Composable
 fun MessageDetailScreen(
@@ -22,6 +24,7 @@ fun MessageDetailScreen(
     onBack: () -> Unit,
 ) {
     var liked by remember { mutableStateOf(false) }
+    val noContent = stringResource(R.string.msg_no_content)
 
     Column(modifier = Modifier.fillMaxSize()) {
         // Top bar
@@ -30,10 +33,10 @@ fun MessageDetailScreen(
             modifier = Modifier.padding(horizontal = 4.dp, vertical = 8.dp)
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.msg_back))
             }
             Text(
-                "Message",
+                stringResource(R.string.msg_message_title),
                 style      = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )
@@ -104,7 +107,7 @@ fun MessageDetailScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text     = msg.preview.ifBlank { "No content" },
+                    text     = msg.preview.ifBlank { noContent },
                     style    = MaterialTheme.typography.bodyMedium,
                     color    = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(16.dp)

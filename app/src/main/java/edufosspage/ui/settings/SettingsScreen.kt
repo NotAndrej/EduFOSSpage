@@ -11,8 +11,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.edufosspage.R
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.edufosspage.ui.login.LoginViewModel
 import org.edufosspage.ui.other.TileCard
@@ -33,17 +35,17 @@ fun SettingsScreen(
     if (showLogoutDialog) {
         AlertDialog(
             onDismissRequest = { showLogoutDialog = false },
-            title            = { Text("Log out?") },
-            text             = { Text("You'll need to sign in again.") },
+            title            = { Text(stringResource(R.string.set_logout_title)) },
+            text             = { Text(stringResource(R.string.set_logout_message)) },
             confirmButton    = {
                 TextButton(onClick = {
                     showLogoutDialog = false
                     loginVm.logout()
                     onLoggedOut()
-                }) { Text("Log out", color = MaterialTheme.colorScheme.error) }
+                }) { Text(stringResource(R.string.set_logout), color = MaterialTheme.colorScheme.error) }
             },
             dismissButton = {
-                TextButton(onClick = { showLogoutDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showLogoutDialog = false }) { Text(stringResource(R.string.set_cancel)) }
             }
         )
     }
@@ -54,41 +56,41 @@ fun SettingsScreen(
             modifier = Modifier.padding(horizontal = 4.dp, vertical = 8.dp)
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.set_back))
             }
-            Text("Settings", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.set_settings), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         }
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
         Column(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            SectionLabel("Preferences")
+            SectionLabel(stringResource(R.string.set_preferences))
 
             TileCard {
                 TileRow(
                     icon     = Icons.Outlined.Palette,
-                    label    = "Themes",
-                    subtitle = "Light, dark, AMOLED",
+                    label    = stringResource(R.string.set_themes),
+                    subtitle = stringResource(R.string.set_themes_subtitle),
                     onClick  = onOpenThemes
                 )
                 TileDivider()
                 TileRow(
                     icon     = Icons.Outlined.Security,
-                    label    = "Privacy",
-                    subtitle = "Cache, app lock",
+                    label    = stringResource(R.string.set_privacy),
+                    subtitle = stringResource(R.string.set_privacy_subtitle),
                     onClick  = onOpenPrivacy
                 )
                 TileDivider()
                 TileRow(
                     icon     = Icons.Outlined.Notifications,
-                    label    = "Notifications",
-                    subtitle = "Messages, grades, timetable alerts",
+                    label    = stringResource(R.string.set_notifications),
+                    subtitle = stringResource(R.string.set_notifications_subtitle),
                     onClick  = onOpenNotifications
                 )
             }
 
-            SectionLabel("Account")
+            SectionLabel(stringResource(R.string.set_account))
 
             TileCard {
                 Row(
@@ -99,13 +101,13 @@ fun SettingsScreen(
                     Icon(Icons.Outlined.Logout, null, Modifier.size(24.dp), tint = MaterialTheme.colorScheme.error)
                     Column(Modifier.weight(1f)) {
                         Text(
-                            "Log out",
+                            stringResource(R.string.set_logout),
                             style      = MaterialTheme.typography.bodyLarge,
                             fontWeight = FontWeight.Medium,
                             color      = MaterialTheme.colorScheme.error
                         )
                         Text(
-                            "Clears saved credentials and cache",
+                            stringResource(R.string.set_logout_subtitle),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -113,7 +115,7 @@ fun SettingsScreen(
                     OutlinedButton(
                         onClick = { showLogoutDialog = true },
                         colors  = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.error)
-                    ) { Text("Log out") }
+                    ) { Text(stringResource(R.string.set_logout)) }
                 }
             }
         }

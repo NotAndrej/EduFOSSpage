@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings hub -->
+    <string name="set_settings">Beállítások</string>
+    <string name="set_preferences">Preferenciák</string>
+    <string name="set_themes">Témák</string>
+    <string name="set_themes_subtitle">Világos, sötét, AMOLED</string>
+    <string name="set_privacy">Adatvédelem</string>
+    <string name="set_privacy_subtitle">Gyorsítótár, alkalmazászár</string>
+    <string name="set_notifications">Értesítések</string>
+    <string name="set_notifications_subtitle">Üzenetek, jegyek, órarendi értesítések</string>
+    <string name="set_account">Fiók</string>
+    <string name="set_logout">Kijelentkezés</string>
+    <string name="set_logout_subtitle">Törli a mentett hitelesítő adatokat és a gyorsítótárat</string>
+    <string name="set_logout_title">Kijelentkezés?</string>
+    <string name="set_logout_message">Újra be kell jelentkeznie.</string>
+    <string name="set_cancel">Mégse</string>
+    <string name="set_back">Vissza</string>
+
+    <!-- Theme screen -->
+    <string name="set_appearance">Megjelenés</string>
+    <string name="set_app_theme">Alkalmazás témája</string>
+    <string name="set_theme_system">Rendszer alapértelmezett</string>
+    <string name="set_theme_system_desc">Az eszköz beállítását követi</string>
+    <string name="set_theme_light">Világos</string>
+    <string name="set_theme_light_desc">Világos mód</string>
+    <string name="set_theme_dark">Sötét</string>
+    <string name="set_theme_dark_desc">Sötét mód</string>
+    <string name="set_theme_amoled">OLED fekete</string>
+    <string name="set_theme_amoled_desc">OLED kijelzőkhöz ajánlott</string>
+
+    <!-- Privacy screen -->
+    <string name="set_privacy_locked_hint">Az adatvédelmi beállítások módosításához engedélyezze lentebb a biometrikus zárat vagy a PIN-kódot</string>
+    <string name="set_biometric_lock">Biometrikus zár</string>
+    <string name="set_biometric_desc">Az alkalmazás megnyitásához ujjlenyomat vagy arc szükséges</string>
+    <string name="set_biometric_unavailable">Nem érhető el biometrikus hardver</string>
+    <string name="set_lock_timeout_label">Zárolás háttérben töltött idő után:</string>
+    <string name="set_timeout_every_open">Minden megnyitáskor</string>
+    <string name="set_pin_lock">PIN-zár</string>
+    <string name="set_pin_set_desc">6 jegyű PIN be van állítva – kikapcsolással eltávolíthatja</string>
+    <string name="set_pin_unset_desc">Bekapcsolással 6 jegyű PIN-t állíthat be</string>
+    <string name="set_change_pin">PIN módosítása</string>
+    <string name="set_block_screenshots">Képernyőképek blokkolása</string>
+    <string name="set_block_screenshots_desc">Megakadályozza az alkalmazás képernyőképeit és képernyőfelvételét</string>
+    <string name="set_local_cache">Helyi adatgyorsítótár</string>
+    <string name="set_cache_on_desc">A jegyek, üzenetek és az órarend lemezre kerülnek az azonnali indítás érdekében</string>
+    <string name="set_cache_off_desc">Semmilyen adat nem íródik lemezre – az alkalmazás minden indításkor elölről kezdi</string>
+
+    <!-- Notifications screen -->
+    <string name="set_general">Általános</string>
+    <string name="set_enable_notifications">Értesítések engedélyezése</string>
+    <string name="set_enable_notifications_desc">Frissítések keresése kb. 15 percenként</string>
+    <string name="set_channels">Csatornák</string>
+    <string name="set_messages">Üzenetek</string>
+    <string name="set_messages_desc">Új üzenetek tanároktól és munkatársaktól</string>
+    <string name="set_grades">Jegyek</string>
+    <string name="set_grades_desc">Új jegyek és dolgozateredmények</string>
+    <string name="set_timetable_changes">Órarendváltozások</string>
+    <string name="set_timetable_changes_desc">Lemondások és helyettesítések</string>
+    <string name="set_debug">Hibakeresés</string>
+    <string name="set_test_poll">Lekérdezés tesztelése most</string>
+    <string name="set_test_done">Kész! Nézze meg az értesítéseit.</string>
+    <string name="set_test_desc">Azonnal lefuttatja a háttérfolyamatot</string>
+    <string name="set_run">Futtatás</string>
+    <string name="set_battery_info">Az Android az akkumulátor kímélése érdekében késleltetheti a háttérben történő lekérdezést. A leggyorsabb értesítésekhez tartsa nyitva az alkalmazást, vagy zárja ki az akkumulátor-optimalizálásból a rendszerbeállításokban.</string>
+
+    <!-- About screen -->
+    <string name="set_about">Névjegy</string>
+    <string name="set_app_info">Alkalmazás adatai</string>
+    <string name="set_app_tagline">Ingyenes, nyílt forráskódú EduPage-kliens</string>
+    <string name="set_version_full">Verzió: %1$s (%2$d)</string>
+    <string name="set_developer">Fejlesztő</string>
+    <string name="set_developer_subtitle">Not Andrej</string>
+    <string name="set_check_updates">Frissítések keresése</string>
+    <string name="set_checking">Ellenőrzés…</string>
+    <string name="set_version_short">Verzió: %1$s</string>
+    <string name="set_latest_version">A legújabb verzióval rendelkezik</string>
+    <string name="set_legal">Jogi információk</string>
+    <string name="set_source_code">Forráskód</string>
+    <string name="set_license">Licenc</string>
+    <string name="set_license_name">GNU General Public License v3.0</string>
+    <string name="set_disclaimer">Jogi nyilatkozat</string>
+    <string name="set_disclaimer_subtitle">Nem az aSc Applied Software Consultants terméke</string>
+
+    <!-- Other tab -->
+    <string name="set_other">Egyéb</string>
+    <string name="set_settings_subtitle">Téma, adatvédelem, értesítések</string>
+    <string name="set_about_subtitle">Alkalmazás adatai, licencek, verzió</string>
+
+    <plurals name="set_timeout_minutes">
+        <item quantity="one">%1$d perc</item>
+        <item quantity="other">%1$d perc</item>
+    </plurals>
+</resources>

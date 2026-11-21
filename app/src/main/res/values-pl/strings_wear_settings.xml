@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Ustawienia -->
+    <string name="wearset_settings">Ustawienia</string>
+    <string name="wearset_menu_settings">Ustawienia</string>
+    <string name="wearset_preferences">Preferencje</string>
+    <string name="wearset_theme_sub">Jasny, ciemny, AMOLED</string>
+    <string name="wearset_privacy_sub">Pamięć podręczna, blokada aplikacji</string>
+    <string name="wearset_notif_sub">Wiadomości, oceny, alerty planu</string>
+    <string name="wearset_about_sub">Informacje, licencje, wersja</string>
+
+    <!-- Motyw -->
+    <string name="wearset_theme_title">Motyw</string>
+    <string name="wearset_appearance">Wygląd</string>
+    <string name="wearset_app_theme">Motyw aplikacji</string>
+    <string name="wearset_theme_system">Domyślny systemowy</string>
+    <string name="wearset_theme_system_desc">Zgodnie z ustawieniem urządzenia</string>
+    <string name="wearset_theme_light">Jasny</string>
+    <string name="wearset_theme_light_desc">Tryb jasny</string>
+    <string name="wearset_theme_dark">Ciemny</string>
+    <string name="wearset_theme_dark_desc">Tryb ciemny</string>
+    <string name="wearset_theme_amoled">Czarny OLED</string>
+    <string name="wearset_theme_amoled_desc">Zalecany dla ekranów OLED</string>
+
+    <!-- Prywatność -->
+    <string name="wearset_privacy_title">Prywatność</string>
+    <string name="wearset_pin_lock">Blokada PIN</string>
+    <string name="wearset_pin_set_desc">PIN ustawiony</string>
+    <string name="wearset_pin_unset_desc">PIN nieustawiony</string>
+    <string name="wearset_block_screenshots">Blokuj zrzuty ekranu</string>
+    <string name="wearset_block_screenshots_desc">Uniemożliwia zrzuty ekranu i nagrywanie aplikacji</string>
+    <string name="wearset_local_cache">Lokalna pamięć podręczna</string>
+    <string name="wearset_cache_on">Oceny, wiadomości i plan są zapisywane na dysku dla natychmiastowego startu</string>
+    <string name="wearset_cache_off">Żadne dane nie są zapisywane na dysku – aplikacja startuje od nowa</string>
+
+    <!-- Powiadomienia -->
+    <string name="wearset_notif_title">Powiadomienia</string>
+    <string name="wearset_notif_general">Ogólne</string>
+    <string name="wearset_notif_enable">Włącz powiadomienia</string>
+    <string name="wearset_notif_enable_desc">Sprawdzaj aktualizacje co ~15 min</string>
+    <string name="wearset_notif_channels">Kanały</string>
+    <string name="wearset_notif_messages">Wiadomości</string>
+    <string name="wearset_notif_messages_desc">Nowe wiadomości od nauczycieli i personelu</string>
+    <string name="wearset_notif_grades">Oceny</string>
+    <string name="wearset_notif_grades_desc">Nowe oceny i wyniki testów</string>
+    <string name="wearset_notif_timetable">Zmiany w planie</string>
+    <string name="wearset_notif_timetable_desc">Odwołane lekcje i zastępstwa</string>
+    <string name="wearset_notif_test">Testuj teraz</string>
+    <string name="wearset_notif_test_hint">Natychmiast uruchamia zadanie w tle</string>
+    <string name="wearset_notif_test_done">Gotowe! Sprawdź powiadomienia.</string>
+    <string name="wearset_notif_info">Android może opóźniać sprawdzanie w tle, aby oszczędzać baterię. Aby otrzymywać alerty najszybciej, pozostaw aplikację otwartą lub wyklucz ją z optymalizacji baterii w ustawieniach systemu.</string>
+    <string name="wearset_run">Uruchom</string>
+
+    <!-- O aplikacji -->
+    <string name="wearset_about_title">O aplikacji</string>
+    <string name="wearset_about_app_desc">Darmowy klient EduPage o otwartym kodzie źródłowym</string>
+    <string name="wearset_version">Wersja %1$s</string>
+    <string name="wearset_license">Licencja</string>
+    <string name="wearset_license_value">GNU General Public License v3.0</string>
+    <string name="wearset_source_code">Kod źródłowy</string>
+    <string name="wearset_disclaimer">Zastrzeżenie</string>
+    <string name="wearset_disclaimer_text">Nie jest produktem aSc Applied Software Consultants</string>
+
+    <!-- Aktualizacja -->
+    <string name="wearset_update_available">Dostępna aktualizacja</string>
+    <string name="wearset_latest_version">Masz najnowszą wersję</string>
+    <string name="wearset_update_now">Aktualizuj</string>
+    <string name="wearset_later">Później</string>
+    <string name="wearset_update_downloading">Pobieranie aktualizacji…</string>
+    <string name="wearset_update_failed">Pobieranie nie powiodło się – sprawdź połączenie i spróbuj ponownie.</string>
+
+</resources>

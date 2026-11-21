@@ -1,6 +1,7 @@
 package org.edufosspage.ui
 
 import androidx.activity.compose.BackHandler
+import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.expandVertically
@@ -19,9 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import org.edufosspage.R
 import org.edufosspage.data.AppCacheState
 import org.edufosspage.data.DeepLinkState
 import org.edufosspage.ui.about.AboutScreen
@@ -37,14 +40,14 @@ import org.edufosspage.ui.settings.SettingsScreen
 import org.edufosspage.ui.settings.ThemeScreen
 import org.edufosspage.ui.timetable.TimetableScreen
 
-data class NavItem(val label: String, val selectedIcon: ImageVector, val unselectedIcon: ImageVector)
+data class NavItem(@StringRes val labelRes: Int, val selectedIcon: ImageVector, val unselectedIcon: ImageVector)
 
 val navItems = listOf(
-    NavItem("Home",      Icons.Filled.Home,         Icons.Outlined.Home),
-    NavItem("Timetable", Icons.Filled.CalendarMonth, Icons.Outlined.CalendarMonth),
-    NavItem("Grades",    Icons.Filled.Grade,         Icons.Outlined.Grade),
-    NavItem("Messages",  Icons.Filled.Email,         Icons.Outlined.Email),
-    NavItem("Other",     Icons.Filled.MoreHoriz,     Icons.Outlined.MoreHoriz),
+    NavItem(R.string.core_nav_home,      Icons.Filled.Home,         Icons.Outlined.Home),
+    NavItem(R.string.core_nav_timetable, Icons.Filled.CalendarMonth, Icons.Outlined.CalendarMonth),
+    NavItem(R.string.core_nav_grades,    Icons.Filled.Grade,         Icons.Outlined.Grade),
+    NavItem(R.string.core_nav_messages,  Icons.Filled.Email,         Icons.Outlined.Email),
+    NavItem(R.string.core_nav_other,     Icons.Filled.MoreHoriz,     Icons.Outlined.MoreHoriz),
 )
 
 @Composable
@@ -68,7 +71,7 @@ private fun CachedDataBanner() {
             ) {
                 Icon(Icons.Default.CloudOff, null, Modifier.size(16.dp), tint = MaterialTheme.colorScheme.onTertiaryContainer)
                 Text(
-                    "Showing cached data - updating...",
+                    stringResource(R.string.core_cached_data_banner),
                     style      = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.Medium,
                     color      = MaterialTheme.colorScheme.onTertiaryContainer,
@@ -117,10 +120,10 @@ private fun MainTabsScreen(loginVm: LoginViewModel, startTab: Int = 0) {
                         icon     = {
                             Icon(
                                 if (selectedTab == i && route == "tabs") item.selectedIcon else item.unselectedIcon,
-                                contentDescription = item.label
+                                contentDescription = stringResource(item.labelRes)
                             )
                         },
-                        label = { Text(item.label) }
+                        label = { Text(stringResource(item.labelRes)) }
                     )
                 }
             }

@@ -7,6 +7,7 @@ import android.os.Build
 import android.util.Log
 import androidx.core.content.edit
 import androidx.work.*
+import org.edufosspage.R
 import java.util.concurrent.TimeUnit
 
 // Notification Channels
@@ -20,18 +21,18 @@ object NotificationChannels {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         val nm = ctx.getSystemService(NotificationManager::class.java)
         nm.createNotificationChannel(
-            NotificationChannel(MESSAGES, "Messages", NotificationManager.IMPORTANCE_HIGH).apply {
-                description = "New messages from teachers and staff"
+            NotificationChannel(MESSAGES, ctx.getString(R.string.msg_channel_messages), NotificationManager.IMPORTANCE_HIGH).apply {
+                description = ctx.getString(R.string.msg_channel_messages_desc)
             }
         )
         nm.createNotificationChannel(
-            NotificationChannel(GRADES, "Grades", NotificationManager.IMPORTANCE_HIGH).apply {
-                description = "New grades and test results"
+            NotificationChannel(GRADES, ctx.getString(R.string.msg_channel_grades), NotificationManager.IMPORTANCE_HIGH).apply {
+                description = ctx.getString(R.string.msg_channel_grades_desc)
             }
         )
         nm.createNotificationChannel(
-            NotificationChannel(TIMETABLE, "Timetable changes", NotificationManager.IMPORTANCE_DEFAULT).apply {
-                description = "Lesson cancellations and substitutions"
+            NotificationChannel(TIMETABLE, ctx.getString(R.string.msg_channel_timetable), NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = ctx.getString(R.string.msg_channel_timetable_desc)
             }
         )
     }

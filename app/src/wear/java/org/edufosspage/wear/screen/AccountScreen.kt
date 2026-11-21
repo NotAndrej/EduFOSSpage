@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -21,6 +22,7 @@ import androidx.wear.compose.material.ScalingLazyColumn
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.rememberScalingLazyListState
+import org.edufosspage.R
 import org.edufosspage.wear.SectionHeader
 
 @Composable
@@ -32,6 +34,7 @@ fun AccountScreen(
 ) {
     val listState = rememberScalingLazyListState()
     val haptics = LocalHapticFeedback.current
+    val signedInLabel = stringResource(R.string.wear_signed_in)
 
     Scaffold(
         timeText          = { TimeText() },
@@ -40,16 +43,16 @@ fun AccountScreen(
         ScalingLazyColumn(
             state               = listState,
             modifier            = Modifier.fillMaxSize(),
-            contentPadding      = PaddingValues(horizontal = 8.dp, vertical = 26.dp),
+            contentPadding      = PaddingValues(horizontal = 16.dp, vertical = 26.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            item { SectionHeader("Account", onBack) }
+            item { SectionHeader(stringResource(R.string.wear_title_account), onBack) }
 
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        userName.ifBlank { "Signed in" },
+                        userName.ifBlank { signedInLabel },
                         style     = MaterialTheme.typography.title3,
                         textAlign = TextAlign.Center,
                         maxLines  = 2,
@@ -67,7 +70,7 @@ fun AccountScreen(
 
             item {
                 Text(
-                    "Your password is stored encrypted on this watch and removed when you sign out.",
+                    stringResource(R.string.wear_account_password_note),
                     style     = MaterialTheme.typography.caption2,
                     color     = MaterialTheme.colors.onSurfaceVariant,
                     textAlign = TextAlign.Center,
@@ -82,7 +85,7 @@ fun AccountScreen(
                     },
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text("Sign out")
+                    Text(stringResource(R.string.wear_account_sign_out))
                 }
             }
         }

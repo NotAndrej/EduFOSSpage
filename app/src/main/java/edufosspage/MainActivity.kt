@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
@@ -90,6 +91,9 @@ fun FragmentActivity.AuthGate(content: @Composable () -> Unit) {
     val ctx   = LocalContext.current
     val scope = rememberCoroutineScope()
 
+    val appName   = stringResource(R.string.core_brand_name)
+    val verifyMsg = stringResource(R.string.core_verify_identity)
+
     val bioEnabled  by BiometricStore.enabledFlow(ctx).collectAsState(initial = false)
     val pinEnabled  = PinStore.isEnabled(ctx)
     val timeoutMins by BiometricStore.timeoutFlow(ctx).collectAsState(initial = 0)
@@ -121,8 +125,8 @@ fun FragmentActivity.AuthGate(content: @Composable () -> Unit) {
             }
         ).authenticate(
             BiometricPrompt.PromptInfo.Builder()
-                .setTitle("EduFOSSpage")
-                .setSubtitle("Verify your identity to continue")
+                .setTitle(appName)
+                .setSubtitle(verifyMsg)
                 .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
                 .build()
         )

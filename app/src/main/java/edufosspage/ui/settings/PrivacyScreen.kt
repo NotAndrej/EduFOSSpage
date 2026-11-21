@@ -14,9 +14,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.edufosspage.R
 import org.edufosspage.data.AppCache
 import org.edufosspage.data.BiometricStore
 import org.edufosspage.data.PinStore
@@ -71,9 +74,9 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
             modifier = Modifier.padding(horizontal = 4.dp, vertical = 8.dp)
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.set_back))
             }
-            Text("Privacy", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.set_privacy), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         }
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
 
@@ -94,7 +97,7 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                     ) {
                         Icon(Icons.Outlined.Lock, null, Modifier.size(20.dp), tint = MaterialTheme.colorScheme.onSecondaryContainer)
                         Text(
-                            "Enable biometric lock or PIN below to change privacy settings",
+                            stringResource(R.string.set_privacy_locked_hint),
                             style      = MaterialTheme.typography.bodySmall,
                             fontWeight = FontWeight.Medium,
                             color      = MaterialTheme.colorScheme.onSecondaryContainer
@@ -111,10 +114,10 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                         Icon(Icons.Outlined.Fingerprint, null, Modifier.size(20.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
                         Spacer(Modifier.width(10.dp))
                         Column(Modifier.weight(1f)) {
-                            Text("Biometric lock", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                            Text(stringResource(R.string.set_biometric_lock), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                             Text(
-                                if (bioAvailable) "Require fingerprint or face to open app"
-                                else "No biometric hardware available",
+                                if (bioAvailable) stringResource(R.string.set_biometric_desc)
+                                else stringResource(R.string.set_biometric_unavailable),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -128,9 +131,11 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
 
                     if (biometricEnabled && bioAvailable) {
                         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
-                        Text("Lock after being in background for:", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        listOf(0 to "Every open", 1 to "1 minute", 5 to "5 minutes", 15 to "15 minutes", 30 to "30 minutes")
-                            .forEach { (mins, label) ->
+                        Text(stringResource(R.string.set_lock_timeout_label), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        listOf(0, 1, 5, 15, 30)
+                            .forEach { mins ->
+                                val label = if (mins == 0) stringResource(R.string.set_timeout_every_open)
+                                            else pluralStringResource(R.plurals.set_timeout_minutes, mins, mins)
                                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                                     RadioButton(
                                         selected = biometricTimeout == mins,
@@ -152,10 +157,10 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                         Icon(Icons.Outlined.Pin, null, Modifier.size(20.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
                         Spacer(Modifier.width(10.dp))
                         Column(Modifier.weight(1f)) {
-                            Text("PIN lock", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                            Text(stringResource(R.string.set_pin_lock), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                             Text(
-                                if (hasPin) "6-digit PIN is set - toggle to remove"
-                                else "Toggle on to set a 6-digit PIN",
+                                if (hasPin) stringResource(R.string.set_pin_set_desc)
+                                else stringResource(R.string.set_pin_unset_desc),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -177,7 +182,7 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                         TextButton(
                             onClick  = { isChangingPin = true; showPinSetup = true },
                             modifier = Modifier.align(Alignment.End)
-                        ) { Text("Change PIN") }
+                        ) { Text(stringResource(R.string.set_change_pin)) }
                     }
 
                     HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
@@ -185,8 +190,8 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                     // Screenshot blocking
                     PrivacyRow(
                         icon      = Icons.Outlined.Screenshot,
-                        label     = "Block screenshots",
-                        sub       = "Prevent screenshots and screen recording of the app",
+                        label     = stringResource(R.string.set_block_screenshots),
+                        sub       = stringResource(R.string.set_block_screenshots_desc),
                         checked   = screenshotBlocked.value,
                         locked    = locked,
                         onChanged = { enabled -> screenshotBlocked.value = enabled; TamperStore.setScreenshotBlocked(ctx, enabled) }
@@ -201,13 +206,13 @@ fun PrivacyScreen(onBack: () -> Unit = {}) {
                                    else MaterialTheme.colorScheme.onSurfaceVariant)
                         Spacer(Modifier.width(10.dp))
                         Column(Modifier.weight(1f)) {
-                            Text("Local data cache",
+                            Text(stringResource(R.string.set_local_cache),
                                 style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold,
                                 color = if (locked) MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
                                         else MaterialTheme.colorScheme.onSurface)
                             Text(
-                                if (cacheEnabled.value) "Grades, messages and timetable are saved to disk for instant launch"
-                                else "No data is written to disk - app starts fresh every launch",
+                                if (cacheEnabled.value) stringResource(R.string.set_cache_on_desc)
+                                else stringResource(R.string.set_cache_off_desc),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (locked) 0.4f else 1f)
                             )

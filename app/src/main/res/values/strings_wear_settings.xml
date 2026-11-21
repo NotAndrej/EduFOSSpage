@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Watch-only settings strings. Kept in a file of their own (prefix wearset_) so they do not collide
+  with the general wear_ strings. AGP merges every values/*.xml file.
+-->
+<resources>
+
+    <!-- Settings hub -->
+    <string name="wearset_settings">Settings</string>
+    <string name="wearset_menu_settings">Settings</string>
+    <string name="wearset_preferences">Preferences</string>
+    <string name="wearset_theme_sub">Light, dark, AMOLED</string>
+    <string name="wearset_privacy_sub">Cache, app lock</string>
+    <string name="wearset_notif_sub">Messages, grades, timetable alerts</string>
+    <string name="wearset_about_sub">App info, licenses, version</string>
+
+    <!-- Theme -->
+    <string name="wearset_theme_title">Theme</string>
+    <string name="wearset_appearance">Appearance</string>
+    <string name="wearset_app_theme">App theme</string>
+    <string name="wearset_theme_system">System default</string>
+    <string name="wearset_theme_system_desc">Follows your device setting</string>
+    <string name="wearset_theme_light">Light</string>
+    <string name="wearset_theme_light_desc">Light mode</string>
+    <string name="wearset_theme_dark">Dark</string>
+    <string name="wearset_theme_dark_desc">Dark mode</string>
+    <string name="wearset_theme_amoled">OLED Black</string>
+    <string name="wearset_theme_amoled_desc">Recommended for OLED displays</string>
+
+    <!-- Privacy -->
+    <string name="wearset_privacy_title">Privacy</string>
+    <string name="wearset_pin_lock">PIN lock</string>
+    <string name="wearset_pin_set_desc">A PIN is set</string>
+    <string name="wearset_pin_unset_desc">No PIN set</string>
+    <string name="wearset_block_screenshots">Block screenshots</string>
+    <string name="wearset_block_screenshots_desc">Prevent screenshots and screen recording of the app</string>
+    <string name="wearset_local_cache">Local data cache</string>
+    <string name="wearset_cache_on">Grades, messages and timetable are saved to disk for instant launch</string>
+    <string name="wearset_cache_off">No data is written to disk - app starts fresh every launch</string>
+
+    <!-- Notifications -->
+    <string name="wearset_notif_title">Notifications</string>
+    <string name="wearset_notif_general">General</string>
+    <string name="wearset_notif_enable">Enable notifications</string>
+    <string name="wearset_notif_enable_desc">Poll for updates every ~15 min</string>
+    <string name="wearset_notif_channels">Channels</string>
+    <string name="wearset_notif_messages">Messages</string>
+    <string name="wearset_notif_messages_desc">New messages from teachers and staff</string>
+    <string name="wearset_notif_grades">Grades</string>
+    <string name="wearset_notif_grades_desc">New grades and test results</string>
+    <string name="wearset_notif_timetable">Timetable changes</string>
+    <string name="wearset_notif_timetable_desc">Cancellations and substitutions</string>
+    <string name="wearset_notif_test">Test poll now</string>
+    <string name="wearset_notif_test_hint">Runs the background worker immediately</string>
+    <string name="wearset_notif_test_done">Done! Check your notifications.</string>
+    <string name="wearset_notif_info">Android may delay background polling to save battery. For the fastest alerts, keep the app open or exempt it from battery optimisation in system settings.</string>
+    <string name="wearset_run">Run</string>
+
+    <!-- About -->
+    <string name="wearset_about_title">About</string>
+    <string name="wearset_about_app_desc">A free and open-source EduPage client</string>
+    <string name="wearset_version">Version %1$s</string>
+    <string name="wearset_license">License</string>
+    <string name="wearset_license_value">GNU General Public License v3.0</string>
+    <string name="wearset_source_code">Source Code</string>
+    <string name="wearset_disclaimer">Disclaimer</string>
+    <string name="wearset_disclaimer_text">Not a product of aSc Applied Software Consultants</string>
+
+    <!-- Update -->
+    <string name="wearset_update_available">Update available</string>
+    <string name="wearset_latest_version">You\'re up to date</string>
+    <string name="wearset_update_now">Update now</string>
+    <string name="wearset_later">Later</string>
+    <string name="wearset_update_downloading">Downloading update…</string>
+    <string name="wearset_update_failed">Download failed - check your connection and try again.</string>
+
+</resources>

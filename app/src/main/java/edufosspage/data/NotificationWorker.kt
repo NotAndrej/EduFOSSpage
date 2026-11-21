@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.edufosspage.R
 import org.edufosspage.data.LoginResult
-import org.edufosspage.MainActivity
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 class NotificationWorker(
@@ -36,7 +35,7 @@ class NotificationWorker(
     override suspend fun getForegroundInfo(): ForegroundInfo {
         val notif = NotificationCompat.Builder(ctx, NotificationChannels.MESSAGES)
             .setSmallIcon(R.mipmap.ic_launcher_monochrome)
-            .setContentTitle("Checking for updates…")
+            .setContentTitle(ctx.getString(R.string.msg_checking_updates))
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setOngoing(true)
             .build()
@@ -105,9 +104,11 @@ class NotificationWorker(
         val (title, body) = when {
             freshMessages.size == 1 -> {
                 val m = freshMessages.first()
-                "New message from ${m.sender}" to m.preview.take(120)
+                ctx.getString(R.string.msg_new_message_from, m.sender) to m.preview.take(120)
             }
-            else -> "${freshMessages.size} new messages" to
+            else -> ctx.resources.getQuantityString(
+                R.plurals.msg_new_messages, freshMessages.size, freshMessages.size
+            ) to
                 freshMessages.take(3).joinToString("\n") { "• ${it.sender}: ${it.preview.take(60)}" }
         }
 
@@ -135,13 +136,15 @@ class NotificationWorker(
         val (title, body) = when {
             freshGrades.size == 1 -> {
                 val g = freshGrades.first()
-                "New grade in ${g.subjectName}" to buildString {
+                ctx.getString(R.string.msg_new_grade_in, g.subjectName) to buildString {
                     append(g.gradeValue)
                     if (g.title.isNotBlank()) append(" - ${g.title}")
-                    g.classAvg?.let { append(" (class avg: ${"%.1f".format(it)})" ) }
+                    g.classAvg?.let { append(ctx.getString(R.string.msg_class_avg, it)) }
                 }
             }
-            else -> "${freshGrades.size} new grades" to
+            else -> ctx.resources.getQuantityString(
+                R.plurals.msg_new_grades, freshGrades.size, freshGrades.size
+            ) to
                 freshGrades.take(4).joinToString("\n") {
                     "• ${it.subjectShort}: ${it.gradeValue}"
                 }
@@ -186,18 +189,20 @@ class NotificationWorker(
                 "$date-${l.period}-${l.subjectShort}-$type" in fresh
             }
 
-            val dayLabel = if (date == today) "Today" else "Tomorrow"
+            val dayLabel = if (date == today) ctx.getString(R.string.msg_today) else ctx.getString(R.string.msg_tomorrow)
             freshLessons.forEach { l: Lesson ->
-                val type = if (l.isCancelled) "cancelled" else "substitution"
-                changed.add("$dayLabel - ${l.subjectName} (period ${l.period}) $type")
+                val type = if (l.isCancelled) ctx.getString(R.string.msg_lesson_cancelled) else ctx.getString(R.string.msg_lesson_substitution)
+                changed.add(ctx.getString(R.string.msg_timetable_change_item, dayLabel, l.subjectName, l.period, type))
             }
         }
 
         if (changed.isEmpty()) return
 
         val (title, body) = when {
-            changed.size == 1 -> "Timetable change" to changed.first()
-            else              -> "${changed.size} timetable changes" to changed.take(4).joinToString("\n") { "• $it" }
+            changed.size == 1 -> ctx.getString(R.string.msg_timetable_change_title) to changed.first()
+            else              -> ctx.resources.getQuantityString(
+                R.plurals.msg_timetable_changes, changed.size, changed.size
+            ) to changed.take(4).joinToString("\n") { "• $it" }
         }
 
         postNotification(
@@ -212,7 +217,11 @@ class NotificationWorker(
 
 
     private fun tapIntent(tab: Int): PendingIntent {
-        val intent = Intent(ctx, MainActivity::class.java).apply {
+        // Resolve the launcher rather than naming an activity: the watch build removes the phone
+        // MainActivity and installs its own, so each package opens its own entry point.
+        val base = ctx.packageManager.getLaunchIntentForPackage(ctx.packageName)
+            ?: Intent(Intent.ACTION_MAIN)
+        val intent = base.apply {
             flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
             putExtra(EXTRA_TAB, tab)
         }

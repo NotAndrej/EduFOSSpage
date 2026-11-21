@@ -20,11 +20,13 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.edufosspage.R
 import org.edufosspage.data.PinStore
 
 @Composable
@@ -87,7 +89,8 @@ fun PinLockScreen(
         haptics.performHapticFeedback(HapticFeedbackType.LongPress)
     }
 
-    val subtitleText = if (attempts == 0) "Enter your 6-digit PIN to continue" else "Incorrect PIN"
+    val subtitleText = if (attempts == 0) stringResource(R.string.core_enter_pin_to_continue)
+                       else stringResource(R.string.core_incorrect_pin)
 
     Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), Alignment.Center) {
         if (isLandscape) {
@@ -106,7 +109,7 @@ fun PinLockScreen(
                         Icons.Outlined.Lock, null, Modifier.size(32.dp),
                         tint = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
                     )
-                    Text("Enter PIN", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.core_enter_pin), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
                     Text(
                         subtitleText,
                         style = MaterialTheme.typography.bodySmall,
@@ -141,7 +144,7 @@ fun PinLockScreen(
                         Icons.Outlined.Lock, null, Modifier.size(40.dp),
                         tint = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
                     )
-                    Text("Enter PIN", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.core_enter_pin), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
                     Text(
                         subtitleText,
                         style = MaterialTheme.typography.bodyMedium,
@@ -202,7 +205,7 @@ private fun PinNumpad(
                     when (key) {
                         "bio" -> if (onUseBiometrics != null) {
                             PinPadButton(onClick = onUseBiometrics, size = buttonSize) {
-                                Icon(Icons.Outlined.Fingerprint, "Use biometrics", Modifier.size(24.dp))
+                                Icon(Icons.Outlined.Fingerprint, stringResource(R.string.core_use_biometrics), Modifier.size(24.dp))
                             }
                         } else {
                             Spacer(Modifier.size(buttonSize))

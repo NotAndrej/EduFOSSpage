@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -24,6 +25,7 @@ import androidx.wear.compose.material.CompactChip
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
+import org.edufosspage.R
 
 /** Full-screen "please wait" state, centred for the round display. */
 @Composable
@@ -99,7 +101,7 @@ fun SectionHeader(
     ) {
         CompactChip(
             onClick = onBack,
-            icon = { Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back") },
+            icon = { Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.wear_cd_back)) },
         )
         Text(
             title,
@@ -126,7 +128,7 @@ fun RefreshChip(refreshing: Boolean, onClick: () -> Unit) {
             if (refreshing) {
                 CircularProgressIndicator(Modifier.size(16.dp), strokeWidth = 2.dp)
             } else {
-                Icon(Icons.Filled.Refresh, contentDescription = "Refresh")
+                Icon(Icons.Filled.Refresh, contentDescription = stringResource(R.string.wear_cd_refresh))
             }
         },
     )

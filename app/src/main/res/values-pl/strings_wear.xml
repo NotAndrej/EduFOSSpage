@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Components.kt -->
+    <string name="wear_cd_back">Wstecz</string>
+    <string name="wear_cd_refresh">Odśwież</string>
+    <string name="wear_cd_cancel">Anuluj</string>
+    <string name="wear_cd_prev_day">Poprzedni dzień</string>
+    <string name="wear_cd_next_day">Następny dzień</string>
+
+    <!-- Shared labels -->
+    <string name="wear_signed_in">Zalogowany</string>
+    <string name="wear_error_check_connection">Sprawdź połączenie i odśwież</string>
+    <string name="wear_common_refreshing">Odświeżanie…</string>
+
+    <!-- WearApp.kt -->
+    <string name="wear_loading_school">Ładowanie szkoły…</string>
+    <string name="wear_signing_in">Logowanie…</string>
+
+    <!-- LoginScreen.kt -->
+    <string name="wear_login_subtitle">Zaloguj się do EduPage</string>
+    <string name="wear_login_username_label">Nazwa użytkownika lub e-mail</string>
+    <string name="wear_login_username_hint">nazwa</string>
+    <string name="wear_login_password_label">Hasło</string>
+    <string name="wear_login_password_hint">hasło</string>
+    <string name="wear_login_show">Pokaż</string>
+    <string name="wear_login_hide">Ukryj</string>
+    <string name="wear_login_action">Zaloguj się</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="wear_menu_timetable">Plan zajęć</string>
+    <string name="wear_menu_grades">Oceny</string>
+    <string name="wear_menu_messages">Wiadomości</string>
+    <string name="wear_menu_account">Konto</string>
+
+    <!-- Section titles -->
+    <string name="wear_title_timetable">Plan zajęć</string>
+    <string name="wear_title_grades">Oceny</string>
+    <string name="wear_title_messages">Wiadomości</string>
+    <string name="wear_title_message">Wiadomość</string>
+    <string name="wear_title_account">Konto</string>
+
+    <!-- TimetableScreen.kt -->
+    <string name="wear_timetable_error_title">Nie udało się wczytać tego dnia</string>
+    <string name="wear_timetable_error_detail">Dotknij, aby ponowić</string>
+    <string name="wear_timetable_loading">Ładowanie planu zajęć…</string>
+    <string name="wear_timetable_empty_title">Brak lekcji</string>
+    <string name="wear_timetable_empty_detail">Ciesz się wolnym czasem</string>
+    <string name="wear_timetable_today">Dziś</string>
+    <string name="wear_timetable_subst">zast.</string>
+
+    <!-- GradesScreen.kt -->
+    <string name="wear_grades_error_title">Nie udało się wczytać ocen</string>
+    <string name="wear_grades_loading">Ładowanie ocen…</string>
+    <string name="wear_grades_empty_title">Na razie brak ocen</string>
+    <string name="wear_grades_empty_detail">Pojawią się, gdy nauczyciele je dodadzą</string>
+    <string name="wear_grades_average">Średnia %1$s</string>
+    <string name="wear_grades_avg">śred. %1$s</string>
+    <plurals name="wear_grade_count">
+        <item quantity="one">%1$d ocena</item>
+        <item quantity="few">%1$d oceny</item>
+        <item quantity="many">%1$d ocen</item>
+        <item quantity="other">%1$d oceny</item>
+    </plurals>
+
+    <!-- MessagesScreen.kt -->
+    <string name="wear_messages_loading">Ładowanie wiadomości…</string>
+    <string name="wear_messages_error_title">Nie udało się wczytać wiadomości</string>
+    <string name="wear_messages_empty_title">Brak wiadomości</string>
+    <string name="wear_messages_empty_detail">Na razie nic nowego</string>
+    <string name="wear_message_unavailable">Wiadomość niedostępna</string>
+
+    <!-- AccountScreen.kt -->
+    <string name="wear_account_password_note">Hasło jest przechowywane na tym zegarku w formie zaszyfrowanej i usuwane przy wylogowaniu.</string>
+    <string name="wear_account_security">Bezpieczeństwo</string>
+    <string name="wear_pin_change">Zmień PIN</string>
+    <string name="wear_pin_remove">Usuń PIN</string>
+    <string name="wear_pin_remove_confirm">Dotknij ponownie, aby usunąć</string>
+    <string name="wear_account_sign_out">Wyloguj się</string>
+
+    <!-- WearPinScreen.kt -->
+    <string name="wear_pin_enter">Wprowadź PIN</string>
+    <string name="wear_pin_incorrect">Nieprawidłowy PIN</string>
+    <string name="wear_pin_mismatch">Kody PIN nie są zgodne</string>
+    <string name="wear_pin_confirm">Potwierdź PIN</string>
+    <string name="wear_pin_new">Nowy PIN</string>
+    <string name="wear_pin_set">Ustaw PIN</string>
+    <string name="wear_pin_choose">Wybierz 6-cyfrowy PIN</string>
+    <string name="wear_pin_enter_again">Wprowadź go ponownie</string>
+</resources>

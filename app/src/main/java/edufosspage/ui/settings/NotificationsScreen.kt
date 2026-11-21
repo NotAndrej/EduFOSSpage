@@ -12,8 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.edufosspage.R
 import org.edufosspage.data.NotificationScheduler
 import org.edufosspage.data.NotificationStore
 import org.edufosspage.ui.other.TileCard
@@ -43,10 +45,10 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
             modifier = Modifier.padding(horizontal = 4.dp, vertical = 8.dp)
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.set_back))
             }
             Text(
-                "Notifications",
+                stringResource(R.string.set_notifications),
                 style      = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
             )
@@ -59,12 +61,12 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
         ) {
 
             // Master toggle
-            SectionLabel("General")
+            SectionLabel(stringResource(R.string.set_general))
             TileCard {
                 NotifToggleRow(
                     icon     = Icons.Outlined.Notifications,
-                    title    = "Enable notifications",
-                    subtitle = "Poll for updates every ~15 min",
+                    title    = stringResource(R.string.set_enable_notifications),
+                    subtitle = stringResource(R.string.set_enable_notifications_desc),
                     checked  = masterOn,
                     onCheckedChange = { v ->
                         masterOn = v
@@ -76,12 +78,12 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
             }
 
             // Per-channel
-            SectionLabel("Channels")
+            SectionLabel(stringResource(R.string.set_channels))
             TileCard {
                 NotifToggleRow(
                     icon     = Icons.Outlined.Email,
-                    title    = "Messages",
-                    subtitle = "New messages from teachers and staff",
+                    title    = stringResource(R.string.set_messages),
+                    subtitle = stringResource(R.string.set_messages_desc),
                     checked  = messagesOn && masterOn,
                     enabled  = masterOn,
                     onCheckedChange = { v ->
@@ -92,8 +94,8 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
                 TileDivider()
                 NotifToggleRow(
                     icon     = Icons.Outlined.Grade,
-                    title    = "Grades",
-                    subtitle = "New grades and test results",
+                    title    = stringResource(R.string.set_grades),
+                    subtitle = stringResource(R.string.set_grades_desc),
                     checked  = gradesOn && masterOn,
                     enabled  = masterOn,
                     onCheckedChange = { v ->
@@ -104,8 +106,8 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
                 TileDivider()
                 NotifToggleRow(
                     icon     = Icons.Outlined.CalendarMonth,
-                    title    = "Timetable changes",
-                    subtitle = "Cancellations and substitutions",
+                    title    = stringResource(R.string.set_timetable_changes),
+                    subtitle = stringResource(R.string.set_timetable_changes_desc),
                     checked  = timetableOn && masterOn,
                     enabled  = masterOn,
                     onCheckedChange = { v ->
@@ -116,7 +118,7 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
             }
 
             // Test button
-            SectionLabel("Debug")
+            SectionLabel(stringResource(R.string.set_debug))
             TileCard {
                 Row(
                     modifier            = Modifier
@@ -127,13 +129,13 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            "Test poll now",
+                            stringResource(R.string.set_test_poll),
                             style      = MaterialTheme.typography.bodyLarge,
                             fontWeight = FontWeight.Medium,
                         )
                         Text(
-                            if (testDone) "Done! Check your notifications."
-                            else "Runs the background worker immediately",
+                            if (testDone) stringResource(R.string.set_test_done)
+                            else stringResource(R.string.set_test_desc),
                             style = MaterialTheme.typography.bodySmall,
                             color = if (testDone)
                                 MaterialTheme.colorScheme.primary
@@ -162,7 +164,7 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
                         } else {
                             Icon(Icons.Outlined.PlayArrow, null, Modifier.size(18.dp))
                             Spacer(Modifier.width(4.dp))
-                            Text("Run")
+                            Text(stringResource(R.string.set_run))
                         }
                     }
                 }
@@ -187,9 +189,7 @@ fun NotificationsScreen(onBack: () -> Unit = {}) {
                         modifier = Modifier.size(18.dp).padding(top = 1.dp),
                     )
                     Text(
-                        "Android may delay background polling to save battery. " +
-                        "For the fastest alerts, keep the app open or exempt it " +
-                        "from battery optimisation in system settings.",
+                        stringResource(R.string.set_battery_info),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSecondaryContainer,
                     )

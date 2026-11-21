@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (never translated) -->
+    <string name="core_brand_name">EduFOSSpage</string>
+
+    <!-- Biometric prompt -->
+    <string name="core_verify_identity">Verify your identity to continue</string>
+
+    <!-- Bottom navigation -->
+    <string name="core_nav_home">Home</string>
+    <string name="core_nav_timetable">Timetable</string>
+    <string name="core_nav_grades">Grades</string>
+    <string name="core_nav_messages">Messages</string>
+    <string name="core_nav_other">Other</string>
+
+    <!-- Cached data banner -->
+    <string name="core_cached_data_banner">Showing cached data - updating...</string>
+
+    <!-- Login -->
+    <string name="core_loading_school">Loading your school…</string>
+    <string name="core_signing_in">Signing in…</string>
+    <string name="core_sign_in_subtitle">Sign in to your EduPage account</string>
+    <string name="core_username_email">Username/Email</string>
+    <string name="core_password">Password</string>
+    <string name="core_log_in">Log in</string>
+
+    <!-- Home dashboard -->
+    <string name="core_welcome">Welcome %1$s!</string>
+    <string name="core_student">Student</string>
+    <string name="core_now">NOW</string>
+    <string name="core_next">NEXT</string>
+    <string name="core_period_label">%1$s. period</string>
+    <string name="core_timetable_for">Timetable for %1$s</string>
+    <string name="core_no_lessons">No lessons</string>
+    <string name="core_no_lessons_today">No lessons today, showing %1$s</string>
+    <string name="core_today">Today</string>
+    <string name="core_yesterday">Yesterday</string>
+    <string name="core_days_ago">%1$d days ago</string>
+    <string name="core_no_messages">No messages</string>
+
+    <!-- Timetable -->
+    <string name="core_timetable_load_error">Couldn\'t load timetable</string>
+    <string name="core_retry">Retry</string>
+    <string name="core_prev_week">Previous week</string>
+    <string name="core_next_week">Next week</string>
+    <string name="core_cancelled">CANCELLED</string>
+    <string name="core_substitution">SUB</string>
+
+    <!-- Update dialog -->
+    <string name="core_update_available">Update available</string>
+    <string name="core_update_almost_done">almost done</string>
+    <string name="core_update_seconds_remaining">~%1$ds remaining</string>
+    <string name="core_update_minutes_remaining">~%1$dm remaining</string>
+    <string name="core_installing">Installing…</string>
+    <string name="core_downloading_percent">Downloading… %1$d%%</string>
+    <string name="core_downloading_percent_eta">Downloading… %1$d%%  –  %2$s</string>
+    <string name="core_update_download_failed">Download failed - check your connection and try again.</string>
+    <string name="core_downloading">Downloading…</string>
+    <string name="core_update_now">Update now</string>
+    <string name="core_later">Later</string>
+
+    <!-- PIN setup / lock -->
+    <string name="core_pin_mismatch">PINs don\'t match. Try again.</string>
+    <string name="core_enter_new_pin">Enter new PIN</string>
+    <string name="core_confirm_new_pin">Confirm new PIN</string>
+    <string name="core_set_pin">Set a PIN</string>
+    <string name="core_confirm_pin">Confirm PIN</string>
+    <string name="core_enter_6_digit_pin">Enter a 6-digit PIN</string>
+    <string name="core_enter_same_pin">Enter the same PIN again</string>
+    <string name="core_cancel">Cancel</string>
+    <string name="core_enter_pin_to_continue">Enter your 6-digit PIN to continue</string>
+    <string name="core_incorrect_pin">Incorrect PIN</string>
+    <string name="core_enter_pin">Enter PIN</string>
+    <string name="core_use_biometrics">Use biometrics</string>
+</resources>
