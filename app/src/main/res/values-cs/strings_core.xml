@@ -53,7 +53,7 @@
     <string name="core_update_minutes_remaining">zbývá ~%1$d min</string>
     <string name="core_installing">Instaluje se…</string>
     <string name="core_downloading_percent">Stahuje se… %1$d%%</string>
-    <string name="core_downloading_percent_eta">Stahuje se… %1$d%%  –  %2$s</string>
+    <string name="core_downloading_percent_eta">Stahuje se… %1$d%%  •  %2$s</string>
     <string name="core_update_download_failed">Stahování selhalo – zkontrolujte připojení a zkuste to znovu.</string>
     <string name="core_downloading">Stahuje se…</string>
     <string name="core_update_now">Aktualizovat nyní</string>

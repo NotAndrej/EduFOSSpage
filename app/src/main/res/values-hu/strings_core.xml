@@ -53,7 +53,7 @@
     <string name="core_update_minutes_remaining">~%1$d perc van hátra</string>
     <string name="core_installing">Telepítés…</string>
     <string name="core_downloading_percent">Letöltés… %1$d%%</string>
-    <string name="core_downloading_percent_eta">Letöltés… %1$d%%  –  %2$s</string>
+    <string name="core_downloading_percent_eta">Letöltés… %1$d%%  •  %2$s</string>
     <string name="core_update_download_failed">A letöltés nem sikerült – ellenőrizze a kapcsolatot, és próbálja újra.</string>
     <string name="core_downloading">Letöltés…</string>
     <string name="core_update_now">Frissítés most</string>

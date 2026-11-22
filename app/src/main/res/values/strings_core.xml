@@ -53,7 +53,7 @@
     <string name="core_update_minutes_remaining">~%1$dm remaining</string>
     <string name="core_installing">Installing…</string>
     <string name="core_downloading_percent">Downloading… %1$d%%</string>
-    <string name="core_downloading_percent_eta">Downloading… %1$d%%  –  %2$s</string>
+    <string name="core_downloading_percent_eta">Downloading… %1$d%%  •  %2$s</string>
     <string name="core_update_download_failed">Download failed - check your connection and try again.</string>
     <string name="core_downloading">Downloading…</string>
     <string name="core_update_now">Update now</string>

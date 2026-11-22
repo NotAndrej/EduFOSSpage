@@ -53,7 +53,7 @@
     <string name="core_update_minutes_remaining">pozostało ~%1$d min</string>
     <string name="core_installing">Instalowanie…</string>
     <string name="core_downloading_percent">Pobieranie… %1$d%%</string>
-    <string name="core_downloading_percent_eta">Pobieranie… %1$d%%  –  %2$s</string>
+    <string name="core_downloading_percent_eta">Pobieranie… %1$d%%  •  %2$s</string>
     <string name="core_update_download_failed">Pobieranie nie powiodło się – sprawdź połączenie i spróbuj ponownie.</string>
     <string name="core_downloading">Pobieranie…</string>
     <string name="core_update_now">Zaktualizuj teraz</string>
